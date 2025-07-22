@@ -1,8 +1,15 @@
+import { main } from 'framer-motion/client'
 import React from 'react'
+import Navbar from './components/Navbar'
+import Hero from './components/Hero'
 
 const App = () => {
   return (
-    <div>App</div>
+    <main>
+      <Navbar />
+      <Hero />
+    </main>
+   
   )
 }
 
