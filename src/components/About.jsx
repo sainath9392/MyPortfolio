@@ -21,10 +21,11 @@ const About = () => {
             frontend and backend technologies, I help bring ideas to life
             whether it's for a business, a startup, or a product team.
           </p>
+          <a href="">MY RESUME</a>
         </div>
         <img
           src="/img/download.png"
-          className="w-[200px] md:w-[200px] mt-5 md:mt-0"
+          className="w-[200px] md:w-[200px] md:mt-0"
           alt="poster"
         />
       </div>
