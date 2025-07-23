@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import HelloWorldAnimation from "./HelloWorldAnimation";
-import NET from "vanta/dist/vanta.net.min";
+import BIRDS from "vanta/dist/vanta.birds.min";
 import { useEffect, useRef } from "react";
 const Hero = () => {
   const [vantaEffect, setVantaEffect] = useState(null);
@@ -8,7 +8,7 @@ const Hero = () => {
   useEffect(() => {
     if (!vantaEffect) {
       setVantaEffect(
-        NET({
+        BIRDS({
           el: myRef.current,
           mouseControls: true,
           touchControls: true,
@@ -17,10 +17,16 @@ const Hero = () => {
           minWidth: 200.0,
           scale: 1.0,
           scaleMobile: 1.0,
-          color: 0x6bff,
           backgroundColor: 0x0,
-          points: 9.0,
-          maxDistance: 21.0,
+          color1: 0x1ae,
+          color2: 0xff92,
+          birdSize: 1.3,
+          wingSpan: 23.0,
+          speedLimit: 2.0,
+          separation: 80.0,
+          alignment: 19.0,
+          cohesion: 33.0,
+          quantity: 2.5,
         })
       );
     }
@@ -29,7 +35,7 @@ const Hero = () => {
     };
   }, [vantaEffect]);
   return (
-    <div ref={myRef} className="relative h-screen w-screen overflow-hidden bg ">
+    <div id="home" ref={myRef} className="relative h-screen w-screen overflow-hidden bg ">
       <div className=" flex flex-col md:flex-row h-full items-center  gap-5 ">
         <div className="relative w-full h-full flex items-center justify-center">
           <div className="relative w-full h-full flex items-center justify-center">
@@ -46,26 +52,33 @@ const Hero = () => {
             <HelloWorldAnimation className="bg-blue-100" />
           </div>
         </div>
-        <div className="flex gap-2 absolute top-60   md:top-100 lg:top-80 right-10">
-          <div className="h-[110px] w-[110px] md:h-[150px] md:w-[150px] rounded-lg ring-2 ring-gray-400 bg-blue-200 hover:rotate-z-320 hover:z-20 transition-all duration-300 rotate-z-30  flex flex-col items-center justify-center">
-            <p className="text-center  uppercase text-xl md:text-2xl inline-block  font-bold bg-gradient-to-r from-blue-500 to-pink-500 bg-clip-text text-transparent">
-              CREATIVE
-            </p>
-          </div>
-          <div className="h-[110px] w-[110px] md:h-[150px] md:w-[150px] rounded-lg ring-2 ring-slate-900/10 bg-blue-50 z-10 hover:scale-120 hover:rotate-z-350 rotate-z-340 transition-all duration-300 flex flex-col items-center justify-center">
-            <p className="text-center  uppercase text-xl md:text-2xl inline-block  font-bold bg-gradient-to-r from-indigo-500 to-blue-800 bg-clip-text text-transparent">
-              secure
-            </p>
-          </div>
-          <div className="h-[110px] w-[110px] md:h-[150px] md:w-[150px] rounded-lg ring-2 ring-gray-400 bg-black rotate-z-16 hover:rotate-z-348 hover:z-20 transition-all duration-300 flex flex-col items-center justify-center">
-            <p className="text-center  uppercase text-xl md:text-2xl inline-block  font-bold bg-gradient-to-r from-indigo-500 to-pink-600 bg-clip-text text-transparent">
-              scalable
-            </p>
+        <div className="flex flex-col gap-2 absolute top-65   md:top-100 lg:top-80 right-5">
+          <h1 className="text-[15px] md:text-2xl text-blue-50 font-bold parisienne-regular capitalize tracking-wider mb-10 ml-5 ">
+            I build applications that are
+          </h1>
+          <div className="flex">
+            <div className="h-[110px] w-[110px] md:h-[150px] md:w-[150px] rounded-lg ring-2 ring-gray-400 bg-blue-200 hover:rotate-z-320 hover:z-20 transition-all duration-300 rotate-z-30  flex flex-col items-center justify-center">
+              <p className="text-center  uppercase text-xl md:text-2xl inline-block  font-bold bg-gradient-to-r from-blue-500 to-pink-500 bg-clip-text text-transparent">
+                CREATIVE
+              </p>
+            </div>
+            <div className="h-[110px] w-[110px] md:h-[150px] md:w-[150px] rounded-lg ring-2 ring-slate-900/10 bg-blue-50 z-10 hover:scale-120 hover:rotate-z-350 rotate-z-340 transition-all duration-300 flex flex-col items-center justify-center">
+              <p className="text-center  uppercase text-xl md:text-2xl inline-block  font-bold bg-gradient-to-r from-indigo-500 to-blue-800 bg-clip-text text-transparent">
+                secure
+              </p>
+            </div>
+            <div className="h-[110px] w-[110px] md:h-[150px] md:w-[150px] rounded-lg ring-2 ring-gray-400 bg-black rotate-z-16 hover:rotate-z-348 hover:z-20 transition-all duration-300 flex flex-col items-center justify-center">
+              <p className="text-center  uppercase text-xl md:text-2xl inline-block  font-bold bg-gradient-to-r from-indigo-500 to-pink-600 bg-clip-text text-transparent">
+                scalable
+              </p>
+            </div>
           </div>
         </div>
         <div className=" bg-white p-2 px-4 rounded-4xl absolute md:text-2xl top-25 left-12 md:left-22 md:top-40">
-          <span className="text-slate-700">Full-Stack</span>{" "}
-          <span className="text-blue-500 hover:text-red-500">Developer..</span>
+          <span className="text-slate-700 ">Full-Stack</span>{" "}
+          <span className="text-blue-500 hover:text-red-500 parisienne-regular font-bold">
+            Developer..
+          </span>
         </div>
       </div>
       <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2">
