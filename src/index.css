@@ -16,7 +16,7 @@
 body {
   width: 100dvw;
   overflow-x: hidden;
-  background-color: #dfdff0;
+
   transition: background-color 0.2s ease;
   font-family: "General Sans", sans-serif;
 }
@@ -63,7 +63,8 @@ body {
     font-family: "General", sans-serif;
     font-size: 0.75rem;
     text-transform: uppercase;
-    @apply text-slate-400;
+    @apply text-white max-sm:ms-4;
+  
   }
 
   .nav-hover-btn::after {
