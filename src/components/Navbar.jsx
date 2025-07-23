@@ -59,7 +59,7 @@ const Navbar = () => {
       className="fixed inset-x-0 top-4 z-50 h-16 border-none transition-all duration-700 sm:inset-x-6"
     >
       <header className="absolute top-1/2 w-full -translate-y-1/2">
-        <nav className="flex size-full items-center justify-between p-4">
+        <nav className="flex size-full items-center justify-center gap-4 md:gap-0 md:justify-between p-4">
           <div className="flex items-center gap-7">
             <img src="/img/image.png" className="w-10 rounded-4xl" alt="pirate" />
             <Button
@@ -67,12 +67,12 @@ const Navbar = () => {
               title={"Contact "}
               rightIcon={<TiLocationArrow />}
               containerClass={
-                "bg-blue-50 flex items-center justify-center gap-1 px-7 py-3"
+                "bg-blue-50 md:flex items-center hidden justify-center gap-1 px-7 py-3"
               }
             />
           </div>
-          <div className="flex h-full items-center">
-            <div className="hidden md:block">
+          <div className="flex h-full  items-center">
+            <div className="">
               {navItems.map((item) => (
                 <a
                   className="nav-hover-btn "
