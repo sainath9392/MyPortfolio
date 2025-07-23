@@ -39,7 +39,7 @@ const Hero = () => {
             <img
               src="/img/strawhat.png"
               alt="strawhat"
-              className="w-20 md:w-40 rotate-22 absolute top-52 md:top-48 left-50 md:left-100 z-50 hover:rotate-z-360 transition-all duration-300 hover:scale-150"
+              className="w-20 md:w-40 rotate-22 absolute top-52 md:top-48 left-50 md:left-100 z-50 hover:rotate-z-360 transition-all duration-300 hover:scale-150 hover:draggable"
             />
           </div>
           <div className="absolute left-10 bottom-40 md:bottom-35 md:left-22 ">

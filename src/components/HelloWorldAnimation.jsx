@@ -5,7 +5,7 @@ const HelloWorldAnimation = ({ className = ""}) => {
   const worldRef = useRef(null);
 
   useEffect(() => {
-    let delay = 3;
+    let delay = 0.5; // Initial delay for the first letter
     let duration = 0.8;
 
     lettersRef.current.forEach((letter, i) => {
