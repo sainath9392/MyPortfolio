@@ -61,7 +61,7 @@ const HelloWorldAnimation = ({ className = ""}) => {
 
       <div
         ref={worldRef}
-        className="text-center mt-[5px] text-3xl md:text-6xl uppercase font-bold tracking-wider transform transition ease-out duration-1000 translate-y-[280px] scale-y-[2] opacity-50 mb-5"
+        className="text-center mt-[5px] text-3xl md:text-6xl uppercase font-bold tracking-wider transform transition ease-out duration-1000 translate-y-[280px] scale-y-[2] opacity-50 "
       >
         WORLD
       </div>

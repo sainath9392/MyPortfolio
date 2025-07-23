@@ -33,20 +33,20 @@ const Hero = () => {
       <div className=" flex flex-col md:flex-row h-full items-center  gap-5 ">
         <div className="relative w-full h-full flex items-center justify-center">
           <div className="relative w-full h-full flex items-center justify-center">
-            <h1 className="special-font hero-heading text-white md:text-blue-100  z-40 p-8  md:p-10 rounded-xl font-bold absolute top-50 md:top-48 tracking-wider md:tracking-wide left-5 md:left-10 text-8xl md:text-9xl uppercase">
+            <h1 className="special-font hero-heading text-white md:text-blue-100  z-40 p-8  md:p-10 rounded-xl font-bold absolute top-32 md:top-48 tracking-wider md:tracking-wide left-5 md:left-10 text-8xl md:text-9xl uppercase">
               <b>Sainath</b>
             </h1>
             <img
               src="/img/strawhat.png"
               alt="strawhat"
-              className="w-20 md:w-40 rotate-22 absolute top-52 md:top-48 left-50 md:left-100 z-50 hover:rotate-z-360 transition-all duration-300 hover:scale-150 hover:draggable"
+              className="w-20 md:w-40 rotate-22 absolute top-34 md:top-48 left-50 md:left-100 z-50 hover:rotate-z-360 transition-all duration-300 hover:scale-150 hover:draggable"
             />
           </div>
-          <div className="absolute left-10 bottom-40 md:bottom-35 md:left-22 ">
+          <div className="absolute left-10 bottom-30 md:bottom-35 md:left-22 ">
             <HelloWorldAnimation className="bg-blue-100" />
           </div>
         </div>
-        <div className="flex gap-2 absolute top-80 right-10">
+        <div className="flex gap-2 absolute top-60 md:top-100 lg:top-80 right-10">
           <div className="h-[110px] w-[110px] md:h-[150px] md:w-[150px] rounded-lg ring-2 ring-gray-400 bg-blue-200 hover:rotate-z-320 transition-all duration-300 rotate-z-30  flex flex-col items-center justify-center">
             <p className="text-center  uppercase text-xl md:text-2xl inline-block  font-bold bg-gradient-to-r from-blue-500 to-pink-500 bg-clip-text text-transparent">
               CREATIVE
@@ -63,7 +63,7 @@ const Hero = () => {
             </p>
           </div>
         </div>
-        <div className=" bg-white p-2 px-4 rounded-4xl absolute md:text-2xl top-42 left-12 md:left-22 md:top-40">
+        <div className=" bg-white p-2 px-4 rounded-4xl absolute md:text-2xl top-25 left-12 md:left-22 md:top-40">
           <span className="text-slate-700">Full-Stack</span>{" "}
           <span className="text-blue-500 hover:text-red-500">Developer..</span>
         </div>
