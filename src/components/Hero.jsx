@@ -46,18 +46,18 @@ const Hero = () => {
             <HelloWorldAnimation className="bg-blue-100" />
           </div>
         </div>
-        <div className="flex gap-2 absolute top-60 md:top-100 lg:top-80 right-10">
-          <div className="h-[110px] w-[110px] md:h-[150px] md:w-[150px] rounded-lg ring-2 ring-gray-400 bg-blue-200 hover:rotate-z-320 transition-all duration-300 rotate-z-30  flex flex-col items-center justify-center">
+        <div className="flex gap-2 absolute top-60   md:top-100 lg:top-80 right-10">
+          <div className="h-[110px] w-[110px] md:h-[150px] md:w-[150px] rounded-lg ring-2 ring-gray-400 bg-blue-200 hover:rotate-z-320 hover:z-20 transition-all duration-300 rotate-z-30  flex flex-col items-center justify-center">
             <p className="text-center  uppercase text-xl md:text-2xl inline-block  font-bold bg-gradient-to-r from-blue-500 to-pink-500 bg-clip-text text-transparent">
               CREATIVE
             </p>
           </div>
-          <div className="h-[110px] w-[110px] md:h-[150px] md:w-[150px] rounded-lg ring-2 ring-slate-900/10 bg-blue-50 z-10 hover:rotate-z-10 transition-all duration-300 rotate-z-350 flex flex-col items-center justify-center">
+          <div className="h-[110px] w-[110px] md:h-[150px] md:w-[150px] rounded-lg ring-2 ring-slate-900/10 bg-blue-50 z-10 hover:scale-120 hover:rotate-z-350 rotate-z-340 transition-all duration-300 flex flex-col items-center justify-center">
             <p className="text-center  uppercase text-xl md:text-2xl inline-block  font-bold bg-gradient-to-r from-indigo-500 to-blue-800 bg-clip-text text-transparent">
               secure
             </p>
           </div>
-          <div className="h-[110px] w-[110px] md:h-[150px] md:w-[150px] rounded-lg ring-2 ring-gray-400 bg-transparent rotate-z-12 hover:rotate-z-348 transition-all duration-300 flex flex-col items-center justify-center">
+          <div className="h-[110px] w-[110px] md:h-[150px] md:w-[150px] rounded-lg ring-2 ring-gray-400 bg-black rotate-z-16 hover:rotate-z-348 hover:z-20 transition-all duration-300 flex flex-col items-center justify-center">
             <p className="text-center  uppercase text-xl md:text-2xl inline-block  font-bold bg-gradient-to-r from-indigo-500 to-pink-600 bg-clip-text text-transparent">
               scalable
             </p>

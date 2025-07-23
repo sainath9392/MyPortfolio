@@ -42,7 +42,7 @@ const HelloWorldAnimation = ({ className = ""}) => {
 
   return (
     <div
-      className={`relative aspect-[4/3] rounded-xl p-4 text-blue-500 font-bold  ${className}`}
+      className={`relative aspect-[4/3] rounded-xl p-4 pb-8 text-blue-500 font-bold  ${className}`}
     >
       <div className="text-center text-3xl md:text-6xl tracking-wider uppercase mt-6">
         {letters.map((char, idx) => (
