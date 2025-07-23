@@ -44,7 +44,7 @@ const HelloWorldAnimation = ({ className = ""}) => {
     <div
       className={`relative aspect-[4/3] rounded-xl p-4 text-blue-500 font-bold  ${className}`}
     >
-      <div className="text-center text-5xl md:text-6xl tracking-wider uppercase mt-6">
+      <div className="text-center text-3xl md:text-6xl tracking-wider uppercase mt-6">
         {letters.map((char, idx) => (
           <span
             key={idx}
@@ -61,7 +61,7 @@ const HelloWorldAnimation = ({ className = ""}) => {
 
       <div
         ref={worldRef}
-        className="text-center mt-[5px] text-5xl md:text-6xl uppercase font-bold tracking-wider transform transition ease-out duration-1000 translate-y-[280px] scale-y-[2] opacity-50"
+        className="text-center mt-[5px] text-3xl md:text-6xl uppercase font-bold tracking-wider transform transition ease-out duration-1000 translate-y-[280px] scale-y-[2] opacity-50 mb-5"
       >
         WORLD
       </div>
