@@ -14,7 +14,7 @@ const Skills = () => {
         <h1 className="text-5xl md:text-9xl tracking-tight text-center md:text-start md:pl-10 mt-20 md:mt-10 lg:mt-20 playfair-display font-bold text-[#00ADB5] uppercase">
           SKILLS
         </h1>
-        <div className="flex flex-col lg:flex-row items-center justify-center md:justify-center mt-0 lg:mt-0 gap-5 md:gap-10 w-full">
+        <div className="flex flex-col lg:flex-row items-center justify-center  mt-0 lg:mt-0 gap-5 md:gap-10 w-full">
           <div className="flex flex-col lg:flex-row items-center justify-center md:justify-center pt-5  gap-5 md:gap-10 w-full">
             <div className="flex flex-row justify-center md:justify-center items-start md:items-center gap-5 lg:items-start mx-20 w-full">
               <p className="text-[#00ADB5] text-lg md:text-4xl tracking-wide md:text-center lg:text-start capitalize">
@@ -99,7 +99,7 @@ const Skills = () => {
               </div>
             </div>
           </div>
-          <div className="flex flex-col lg:flex-row items-center justify-center md:justify-center pt-2 gap-5 md:gap-10 w-full">
+          <div className="flex flex-col lg:flex-row items-center justify-center md:justify-center pt-2 -ml-5 md:ml-0 gap-5 md:gap-10 w-full">
             <div className="flex flex-row justify-center md:justify-center items-start md:items-center gap-5 lg:items-start mx-20 w-full">
               <p className="text-[#00ADB5] text-lg md:text-4xl tracking-wide md:text-center lg:text-start capitalize">
                 (02)

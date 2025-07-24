@@ -82,9 +82,9 @@ const Hero = () => {
         </div>
 
         {/* Role Badge */}
-        <div className="bg-white p-2 px-4 rounded-4xl absolute md:text-2xl group top-[100px] left-[48px] md:left-[88px] md:top-[160px]">
+        <div className="bg-white p-2 px-4 rounded-4xl absolute md:text-2xl group top-[100px] left-[48px] transition-all duration-150 md:left-[88px] md:top-[160px]">
           <span className="text-slate-700">Full-Stack</span>{" "}
-          <span className="text-blue-500 group-hover:text-red-500 group-hover:text-3xl parisienne-regular font-bold">
+          <span className="text-blue-500 group-hover:text-red-500 group-hover:text-3xl transition-all duration-150 parisienne-regular font-bold">
             Developer..
           </span>
         </div>
