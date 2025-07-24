@@ -47,7 +47,7 @@ const Hero = () => {
               src="/img/strawhat.png"
               alt="strawhat"
               draggable="false"
-              className="w-20 md:w-40 rotate-[22deg] absolute top-[140px] md:top-[180px] left-[200px] md:left-[400px] z-50 transition-all duration-300 hover:scale-150 hover:rotate-[382deg]"
+              className="w-20 md:w-40 rotate-[22deg] absolute top-[140px] md:top-[180px] left-[200px] md:left-[400px] z-50 transition-all duration-500 hover:scale-150 hover:rotate-[382deg]"
             />
           </div>
 
