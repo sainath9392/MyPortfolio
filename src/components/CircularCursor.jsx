@@ -1,12 +1,12 @@
 import React, { useEffect, useRef } from "react";
 
-const CircularCursor = () => {
+const CircularCursor = ({color1,color2}) => {
   const canvasRef = useRef(null);
   const trail = useRef([]);
 
   // You can change this size for a bigger or smaller dash/pointer
-  const pointerSize = 20; // Increase this to make everything larger
-  const maxTrailLength = 50;
+  const pointerSize = 10; // Increase this to make everything larger
+  const maxTrailLength = 10;
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -40,11 +40,11 @@ const CircularCursor = () => {
         ctx.moveTo(p1.x, p1.y);
         ctx.lineTo(p2.x, p2.y);
 
-        ctx.strokeStyle = `rgba(255, 174, 1, ${p2.alpha})`;
-        ctx.lineWidth = pointerSize * 0.4 * p2.alpha; // Scale with pointerSize
+        ctx.strokeStyle = color1;
+        ctx.lineWidth = pointerSize * 0.9 * p2.alpha; // Scale with pointerSize
         ctx.lineCap = "round";
         ctx.shadowBlur = pointerSize;
-        ctx.shadowColor = "rgba(255, 174, 1,1)";
+        ctx.shadowColor = color1;
         ctx.stroke();
 
         // Fade alpha
@@ -56,9 +56,9 @@ const CircularCursor = () => {
         const head = trail.current[trail.current.length - 1];
         ctx.beginPath();
         ctx.arc(head.x, head.y, pointerSize, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(255, 174, 1, 0.85)";
+        ctx.fillStyle = color2;
         ctx.shadowBlur = pointerSize * 2;
-        ctx.shadowColor = "rgba(255, 174, 1,0.9)";
+        ctx.shadowColor = color2;
         ctx.fill();
       }
 
@@ -84,6 +84,7 @@ const CircularCursor = () => {
         pointerEvents: "none",
         zIndex: 9999,
       }}
+      className="hidden lg:block"
     />
   );
 };

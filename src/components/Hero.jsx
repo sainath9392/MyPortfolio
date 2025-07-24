@@ -35,12 +35,8 @@ const Hero = () => {
   }, []);
 
   return (
-    <div
-      id="home"
-      ref={myRef}
-      className="h-screen w-screen overflow-hidden"
-    >
-      <div className="flex relative flex-col md:flex-row h-full items-center gap-5">
+    <div id="home" ref={myRef} className="h-screen w-screen overflow-hidden">
+      <div className="flex relative flex-col md:flex-row h-full items-center gap-5  w-screen overflow-hidden">
         <div className="relative w-full h-full flex items-center justify-center">
           {/* Title and Strawhat */}
           <div className="relative w-full h-full flex items-center justify-center">
@@ -95,7 +91,7 @@ const Hero = () => {
       </div>
 
       {/* Scroll Button */}
-      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2">
+      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 ">
         <a
           href="#about"
           aria-label="Scroll to about section"
