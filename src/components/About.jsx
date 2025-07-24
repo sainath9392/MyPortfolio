@@ -30,7 +30,7 @@ const About = () => {
             alt="poster"
           />
         </div>
-        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 ">
+        <div className="hidden md:block absolute bottom-10 left-1/2 transform -translate-x-1/2 ">
           <a
             href="#skills"
             aria-label="Scroll to about section"

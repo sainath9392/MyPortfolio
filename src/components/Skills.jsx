@@ -4,18 +4,18 @@ const Skills = () => {
   return (
     <div
       id="skills"
-      className="min-h-screen w-[100vw] bg-[#EEEEEE] pb-20  overflow-hidden relative"
+      className="h-[100vh] w-[100vw] bg-[#EEEEEE] pb-20  overflow-hidden relative"
     >
       <CircularCursor
         color1={`rgba(255, 184, 0, 0.8)`}
         color2={`rgba(207, 149, 0, 0.8)`}
       />
-      <div className="h-full w-full overflow-hidden ">
+      <div className="h-full w-full  ">
         <h1 className="text-5xl md:text-9xl tracking-tight text-center md:text-start md:pl-10 mt-20 md:mt-10 lg:mt-20 playfair-display font-bold text-[#00ADB5] uppercase">
           SKILLS
         </h1>
         <div className="flex flex-col lg:flex-row items-center justify-center  mt-0 lg:mt-0 gap-5 md:gap-10 w-full">
-          <div className="flex flex-col lg:flex-row items-center justify-center md:justify-center pt-5  gap-5 md:gap-10 w-full">
+          <div className="flex flex-col lg:flex-row items-center justify-center md:justify-center pt-8  gap-5 md:gap-10 w-full">
             <div className="flex flex-row justify-center md:justify-center items-start md:items-center gap-5 lg:items-start mx-20 w-full">
               <p className="text-[#00ADB5] text-lg md:text-4xl tracking-wide md:text-center lg:text-start capitalize">
                 (01)
@@ -168,7 +168,7 @@ const Skills = () => {
           </div>
         </div>
       </div>
-      <div className="absolute bottom-13 md:bottom-10 left-1/2 transform -translate-x-1/2 ">
+      <div className="hidden md:block absolute bottom-10 left-1/2 transform -translate-x-1/2 ">
         <a
           href="#projects"
           aria-label="Scroll to about section"
