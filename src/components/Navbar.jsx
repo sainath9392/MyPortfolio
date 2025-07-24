@@ -2,9 +2,9 @@ import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import Button from "./Button";
 import { TiLocationArrow } from "react-icons/ti";
-import {useWindowScroll} from 'react-use';
+import { useWindowScroll } from "react-use";
 
-const navItems = ["Home", "About", "Skills", "Projects", ];
+const navItems = ["Home", "About", "Skills", "Projects"];
 
 const Navbar = () => {
   const [isAudioplaying, setIsAudioplaying] = useState(false);
@@ -61,15 +61,21 @@ const Navbar = () => {
       <header className="absolute top-1/2 w-full -translate-y-1/2">
         <nav className="flex size-full items-center justify-center gap-4 md:gap-0 md:justify-between p-4">
           <div className="flex items-center gap-7">
-            <img src="/img/image.png" className="w-10 rounded-4xl" alt="pirate" />
-            <Button
-              id={"product-button"}
-              title={"Contact "}
-              rightIcon={<TiLocationArrow />}
-              containerClass={
-                "bg-blue-50 md:flex items-center hidden justify-center gap-1 px-7 py-3"
-              }
+            <img
+              src="/img/image.png"
+              className="w-10 hidden md:block rounded-4xl"
+              alt="pirate"
             />
+            <a href="#contact">
+              <Button
+                id={"product-button"}
+                title={"Contact "}
+                rightIcon={<TiLocationArrow className="hidden md:block" />}
+                containerClass={
+                  "bg-blue-50 md:flex items-center justify-center gap-1  px-5 py-3 md:px-7"
+                }
+              />
+            </a>
           </div>
           <div className="flex h-full  items-center">
             <div className="">
@@ -93,7 +99,7 @@ const Navbar = () => {
                 src="/audio/drumsofliberation.mp3"
                 loop
               />
-             
+
               {[1, 2, 3, 4].map((bar) => (
                 <div
                   key={bar}

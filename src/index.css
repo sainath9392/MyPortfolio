@@ -86,9 +86,8 @@ html {
     position: relative;
     margin-inline-start: 2.5rem;
     font-family: "General", sans-serif;
-    font-size: 0.75rem;
     text-transform: uppercase;
-    @apply text-white max-sm:ms-4;
+    @apply text-white max-sm:ms-4 text-[10px] md:text-xs font-semibold;
   }
 
   .nav-hover-btn::after {
