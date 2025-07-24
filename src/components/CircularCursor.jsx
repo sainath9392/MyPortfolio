@@ -41,7 +41,7 @@ const CircularCursor = ({color1,color2}) => {
         ctx.lineTo(p2.x, p2.y);
 
         ctx.strokeStyle = color1;
-        ctx.lineWidth = pointerSize * 0.9 * p2.alpha; // Scale with pointerSize
+        ctx.lineWidth = pointerSize * 0.5 * p2.alpha; // Scale with pointerSize
         ctx.lineCap = "round";
         ctx.shadowBlur = pointerSize;
         ctx.shadowColor = color1;

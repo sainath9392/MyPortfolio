@@ -7,8 +7,8 @@ const Skills = () => {
       className="min-h-[100vh] w-[100vw] bg-[#EEEEEE] pb-20  overflow-hidden relative"
     >
       <CircularCursor
-        color1={`rgba(255, 184, 0, 0.8)`}
-        color2={`rgba(207, 149, 0, 0.8)`}
+        color1={`rgba(255, 216, 0, 1)`}
+        color2={`rgba(255, 216, 0, 1)`}
       />
       <div className="h-full w-full  ">
         <h1 className="text-5xl md:text-9xl tracking-tight text-center md:text-start md:pl-10 mt-20 md:mt-10 lg:mt-20 playfair-display font-bold text-[#00ADB5] uppercase">
