@@ -314,6 +314,37 @@ html {
   }
 }
 
+@keyframes borderColorCycle {
+  0% {
+    border-color: rgb(255, 255, 255);
+  }
+  50% {
+    border-color: rgb(211, 211, 211);
+  }
+  100% {
+    border-color: rgb(0, 0, 0);
+  }
+}
+
+.animate-border-color {
+  animation: borderColorCycle 5s infinite;
+}
+
+@keyframes diagonalMove {
+  0%,
+  100% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+}
+
+.animate-diagonal {
+  animation: diagonalMove 5s ease-in-out infinite;
+  background-size: 200% 200%;
+}
+
 /* From Uiverse.io by G4b413l */
 /* https://uiverse.io/G4b413l/tidy-walrus-92 */
 .three-body {
