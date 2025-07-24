@@ -4,7 +4,7 @@ const Skills = () => {
   return (
     <div
       id="skills"
-      className="h-[100vh] w-[100vw] bg-[#EEEEEE] pb-20  overflow-hidden relative"
+      className="min-h-[100vh] w-[100vw] bg-[#EEEEEE] pb-20  overflow-hidden relative"
     >
       <CircularCursor
         color1={`rgba(255, 184, 0, 0.8)`}

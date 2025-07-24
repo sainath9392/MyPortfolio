@@ -4,7 +4,7 @@ const Projects = () => {
   return (
     <div
       id="projects"
-      className=" h-[100vh] w-[100vw] bg-[#edff66]  overflow-hidden "
+      className=" min-h-[100vh] w-[100vw] bg-[#edff66]  overflow-hidden "
     >
       <div className="h-full w-full overflow-hidden">
         <h1 className="text-5xl md:text-9xl tracking-tight text-center md:text-start md:pl-10  mt-20 md:mt-10 lg:mt-20 playfair-display font-bold text-black uppercase">
@@ -14,17 +14,20 @@ const Projects = () => {
           className="flex flex-col lg:flex-row items-center justify-center md:justify
           between mt-10 lg:mt-20 gap-5 md:gap-10 w-full"
         >
-          <div className="flex flex-row justify-center md:justify-between items-start md:items-center gap-5 lg:items-start mx-20 w-full">
-            <p className="text-black text-lg md:text-4xl tracking-wide md:text-center lg:text-start capitalize">
-              (01)
-            </p>
+          <div className="flex flex-col md:flex-row items-center justify-center md:justify-between  md:items-center gap-5 mx-20 w-full h-full">
             <div>
-              <h1 className="text-xl md:text-4xl text-black font-extrabold">
-                Project Title
-              </h1>
-              <p className="text-[#393E46] text-sm md:text-2xl tracking-normal md:text-start mt-10 w-[280px] md:w-[500px] text-justify">
-                Brief description of the project, its purpose, and technologies
-                used.
+              <div className="flex justify-center items-center gap-5">
+                <p className="text-[#6b645c] text-lg md:text-xl tracking-wide md:text-center uppercase">
+                  01
+                </p>
+                <p className="text-[#6b645c] text-lg md:text-xl tracking-wide md:text-center uppercase">
+                  FASHNIOR(Fashion E-commerce)
+                </p>
+              </div>
+              <p className="text-black text-xl md:text-2xl tracking-normal  md:text-start md:ml-10 w-[300px] md:w-[500px] text-justify">
+                Here are some of the projects I have worked on, showcasing my
+                skills in full-stack development, UI/UX design, and problem
+                solving.
               </p>
             </div>
           </div>
