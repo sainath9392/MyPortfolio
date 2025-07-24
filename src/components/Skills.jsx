@@ -30,44 +30,50 @@ const Skills = () => {
                   are scalable, maintainable, and ready for real-world users.
                 </p>
                 <div>
-                  <ol className=" mt-5 text-[#030303] text-sm md:text-2xl tracking-normal md:text-start">
+                  <ol className=" mt-5 text-[#030303] text-sm md:text-lg tracking-normal md:text-start">
                     <li className="border-b-2 pb-3 text-[#000000]">
                       <span className="text-[18px] text-[#6b645c] ">01</span>{" "}
                       <img
-                        className="inline w-4 h-4 md:w-6 md:h-6 mx-2 hover:scale-140 transition-all duration-300"
+                        className="hidden md:inline w-4 h-4 md:w-6 md:h-6 mx-2 hover:scale-140 transition-all duration-300"
                         src="/svg/icons8-react-24.png"
                         alt=""
                       />
                       React,
                       <img
-                        className="inline w-4 h-4 md:w-6 md:h-6 mx-2 hover:scale-140 transition-all duration-300"
+                        className="hidden md:inline w-4 h-4 md:w-6 md:h-6 mx-2 hover:scale-140 transition-all duration-300"
                         src="/svg/icons8-nodejs-48.png"
                         alt=""
                       />{" "}
                       Node.js,
                       <img
-                        className="inline w-4 h-4 md:w-6 md:h-6 mx-2 hover:scale-140 transition-all duration-300"
+                        className="hidden md:inline w-4 h-4 md:w-6 md:h-6 mx-2 hover:scale-140 transition-all duration-300"
                         src="/svg/icons8-express-js-50.png"
                         alt=""
                       />{" "}
-                      Express.js
+                      Express.js,
+                      <img
+                        className="hidden md:inline w-4 h-4 md:w-6 md:h-6 mx-2 hover:scale-140 transition-all duration-300"
+                        src="/svg/icons8-mongodb-24.png"
+                        alt=""
+                      />{" "}
+                      MongoDB
                     </li>
                     <li className="border-b-2 pb-3 pt-3 text-[#000000]">
                       <span className="text-[18px] text-[#6b645c] ">02</span>
                       <img
-                        className="inline w-4 h-4 md:w-6 md:h-6 mx-2 hover:scale-140 transition-all duration-300"
+                        className="hidden md:inline w-4 h-4 md:w-6 md:h-6 mx-2 hover:scale-140 transition-all duration-300"
                         src="/svg/icons8-rest-api-50.png"
                         alt=""
                       />{" "}
                       REST APIs,
                       <img
-                        className="inline w-4 h-4 md:w-6 md:h-6 mx-2 hover:scale-140 transition-all duration-300"
+                        className="hidden md:inline w-4 h-4 md:w-6 md:h-6 mx-2 hover:scale-140 transition-all duration-300"
                         src="/svg/icons8-firebase-48.png"
                         alt=""
                       />{" "}
                       Firebase,
                       <img
-                        className="inline w-4 h-4 md:w-6 md:h-6 mx-2 hover:scale-140 transition-all duration-300"
+                        className="hidden md:inline w-4 h-4 md:w-6 md:h-6 mx-2 hover:scale-140 transition-all duration-300"
                         src="/svg/icons8-docker-48.png"
                         alt=""
                       />{" "}
@@ -76,19 +82,19 @@ const Skills = () => {
                     <li className="border-b-2 pb-3 pt-3 text-[#000000]">
                       <span className="text-[18px] text-[#6b645c] ">03</span>
                       <img
-                        className="inline w-4 h-4 md:w-6 md:h-6 mx-2 hover:scale-140 transition-all duration-300"
+                        className="hidden md:inline w-4 h-4 md:w-6 md:h-6 mx-2 hover:scale-140 transition-all duration-300"
                         src="/svg/icons8-git-50.png"
                         alt=""
                       />{" "}
                       Git,
                       <img
-                        className="inline w-4 h-4 md:w-6 md:h-6 mx-2 hover:scale-140 transition-all duration-300"
+                        className="hidden md:inline w-4 h-4 md:w-6 md:h-6 mx-2 hover:scale-140 transition-all duration-300"
                         src="/svg/icons8-github-30.png"
                         alt=""
                       />{" "}
                       GitHub,
                       <img
-                        className="inline w-4 h-4 md:w-6 md:h-6 mx-2 hover:scale-140 transition-all duration-300"
+                        className="hidden md:inline w-4 h-4 md:w-6 md:h-6 mx-2 hover:scale-140 transition-all duration-300"
                         src="/svg/icons8-postman-api-64.png"
                         alt=""
                       />{" "}
@@ -115,17 +121,17 @@ const Skills = () => {
                   accessibility, and seamless user experiences.
                 </p>
                 <div>
-                  <ol className=" mt-5 text-[#030303] text-sm md:text-2xl tracking-normal md:text-start">
+                  <ol className=" mt-5 text-[#030303] text-sm md:text-lg tracking-normal md:text-start">
                     <li className="border-b-2 pb-3 text-[#000000]">
                       <span className="text-[18px] text-[#6b645c] ">01</span>
                       <img
-                        className="inline w-4 h-4 md:w-6 md:h-6 mx-2 hover:scale-140 transition-all duration-300"
+                        className="hidden md:inline w-4 h-4 md:w-6 md:h-6 mx-2 hover:scale-140 transition-all duration-300"
                         src="/svg/icons8-tailwindcss-48.png"
                         alt=""
                       />{" "}
                       TailwindCSS,
                       <img
-                        className="inline w-4 h-4 md:w-6 md:h-6 mx-2 hover:scale-140 transition-all duration-300"
+                        className="hidden md:inline w-4 h-4 md:w-6 md:h-6 mx-2 hover:scale-140 transition-all duration-300"
                         src="/svg/greensock-icon-logo-512.png"
                         alt=""
                       />{" "}
@@ -134,7 +140,7 @@ const Skills = () => {
                     <li className="border-b-2 pb-3 pt-3 text-[#000000]">
                       <span className="text-[18px] text-[#6b645c] ">02</span>
                       <img
-                        className="inline w-4 h-4 md:w-6 md:h-6 mx-2 hover:scale-140 transition-all duration-300"
+                        className="hidden md:inline w-4 h-4 md:w-6 md:h-6 mx-2 hover:scale-140 transition-all duration-300"
                         src="/svg/icons8-figma-48.png"
                         alt=""
                       />{" "}
@@ -143,19 +149,19 @@ const Skills = () => {
                     <li className="border-b-2 pb-3 pt-3 text-[#000000]">
                       <span className="text-[18px] text-[#6b645c] ">03</span>
                       <img
-                        className="inline w-4 h-4 md:w-6 md:h-6 mx-2 hover:scale-140 transition-all duration-300"
+                        className="hidden md:inline w-4 h-4 md:w-6 md:h-6 mx-2 hover:scale-140 transition-all duration-300"
                         src="/svg/icons8-html-48.png"
                         alt=""
                       />{" "}
                       HTML,
                       <img
-                        className="inline w-4 h-4 md:w-6 md:h-6 mx-2 hover:scale-140 transition-all duration-300"
+                        className="hidden md:inline w-4 h-4 md:w-6 md:h-6 mx-2 hover:scale-140 transition-all duration-300"
                         src="/svg/icons8-css-48.png"
                         alt=""
                       />{" "}
                       CSS,
                       <img
-                        className="inline w-4 h-4 md:w-6 md:h-6 mx-2 hover:scale-140 transition-all duration-300"
+                        className="hidden md:inline w-4 h-4 md:w-6 md:h-6 mx-2 hover:scale-140 transition-all duration-300"
                         src="/svg/icons8-javascript-48.png"
                         alt=""
                       />{" "}
