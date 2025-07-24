@@ -25,7 +25,7 @@ const About = () => {
         </div>
         <img
           src="/img/download.png"
-          className="w-[200px] md:w-[200px] md:mt-0"
+          className="w-[150px] md:w-[150px] lg:w-[200px] -mt-10 md:mt-0"
           alt="poster"
         />
       </div>
