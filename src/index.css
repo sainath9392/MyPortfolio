@@ -319,15 +319,15 @@ html {
     border-color: rgb(255, 255, 255);
   }
   50% {
-    border-color: rgb(211, 211, 211);
+    border-color: rgb(0, 0, 0);
   }
   100% {
-    border-color: rgb(0, 0, 0);
+    border-color: rgb(47, 0, 255);
   }
 }
 
 .animate-border-color {
-  animation: borderColorCycle 5s infinite;
+  animation: borderColorCycle 2s infinite;
 }
 
 @keyframes diagonalMove {

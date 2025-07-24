@@ -4,7 +4,7 @@ const Projects = () => {
   return (
     <div
       id="projects"
-      className=" h-fit w-[100vw] bg-[#000000]  overflow-hidden "
+      className=" h-fit w-[100vw] bg-[#000000]  overflow-hidden relative "
     >
       <h1 className="text-5xl md:text-9xl tracking-tight text-center md:text-start md:pl-10  mt-20 md:mt-10 lg:mt-20 playfair-display font-bold text-[#EEEEEE] uppercase">
         PROJECTS
@@ -12,7 +12,7 @@ const Projects = () => {
       <div className="w-full flex flex-col items-center lg:justify-start lg:items-start lg:pl-20 gap-10 md:gap-14 mt-10 lg:mt-20 mb-20">
         {/* Your project cards here, no scale or mx-10 needed */}
 
-        <div className="rounded-2xl relative group bg-white p-5 w-[320px] md:w-[350px] lg:w-[420px] shadow-lg border-4 border-red-500 animate-border-color">
+        <div className="rounded-2xl  relative group bg-white p-5 w-[320px] md:w-[350px] lg:w-[420px] shadow-lg border-4 border-red-500 animate-border-color">
           <div className="">
             <h1 className="text-sm md:text-2xl text-black font-extrabold">
               Fashnior (Fashion E-commerce)
@@ -24,7 +24,11 @@ const Projects = () => {
               users (customers) and admins to interact with the platform
               according to their privileges.
             </p>
-            <a className="hidden lg:block" href="https://fashnior.vercel.app/">
+            <a
+              className="hidden lg:block"
+              target="_blank"
+              href="https://fashnior.vercel.app/"
+            >
               <img
                 className="hidden lg:block group-hover:scale-200 z-20 scale-0 absolute left-[800px] top-30 rounded-lg transition-all duration-500"
                 src="/img/fashnior.png"
@@ -85,7 +89,7 @@ const Projects = () => {
                   </span>{" "}
                   <a
                     href="https://github.com/sainath9392/fashnior-ecommerce-app"
-                    new-tab="_blank"
+                    target="_blank"
                     className="text-blue-500 hover:underline"
                   >
                     GitHub Repository
@@ -97,7 +101,7 @@ const Projects = () => {
                   </span>{" "}
                   <a
                     href="https://fashnior.vercel.app/"
-                    new-tab="_blank"
+                    target="_blank"
                     className="text-blue-500 hover:underline"
                   >
                     Live Demo
@@ -122,6 +126,7 @@ const Projects = () => {
             </p>
             <a
               className="hidden lg:block"
+              target="_blank"
               href="https://task-manager-chi-ochre.vercel.app/"
             >
               <img
@@ -185,7 +190,7 @@ const Projects = () => {
                   </span>{" "}
                   <a
                     href="https://github.com/sainath9392/Task-Manager"
-                    new-tab="_blank"
+                    target="_blank"
                     className="text-blue-500 hover:underline"
                   >
                     GitHub Repository
@@ -197,7 +202,7 @@ const Projects = () => {
                   </span>{" "}
                   <a
                     href="https://task-manager-chi-ochre.vercel.app/"
-                    new-tab="_blank"
+                    target="_blank"
                     className="text-blue-500 hover:underline"
                   >
                     Live Demo
@@ -221,6 +226,7 @@ const Projects = () => {
             </p>
             <a
               className="hidden lg:block"
+              target="_blank"
               href="https://zentry-gaming-website-gilt.vercel.app/"
             >
               <img
@@ -278,7 +284,7 @@ const Projects = () => {
                   </span>{" "}
                   <a
                     href="https://github.com/sainath9392/Zentry-gaming-website"
-                    new-tab="_blank"
+                    target="_blank"
                     className="text-blue-500 hover:underline"
                   >
                     GitHub Repository
@@ -290,7 +296,7 @@ const Projects = () => {
                   </span>{" "}
                   <a
                     href="https://zentry-gaming-website-gilt.vercel.app/"
-                    new-tab="_blank"
+                    target="_blank"
                     className="text-blue-500 hover:underline"
                   >
                     Live Demo
@@ -300,6 +306,15 @@ const Projects = () => {
             </div>
           </div>
         </div>
+      </div>
+      <div className="hidden md:block absolute bottom-10 left-1/2 transform -translate-x-1/2 ">
+        <a
+          href="#contact"
+          aria-label="Scroll to about section"
+          className="text-white hover:ring-4 hover:ring-white bg-gradient-to-br from-blue-500 to-green-500 animate-diagonal font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center"
+        >
+          Scroll Down
+        </a>
       </div>
     </div>
   );

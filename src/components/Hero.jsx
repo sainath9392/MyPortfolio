@@ -5,7 +5,6 @@ import BIRDS from "vanta/dist/vanta.birds.min";
 const Hero = () => {
   const [vantaEffect, setVantaEffect] = useState(null);
   const myRef = useRef(null);
-
   useEffect(() => {
     const effect = BIRDS({
       el: myRef.current,
