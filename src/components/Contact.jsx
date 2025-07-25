@@ -107,7 +107,7 @@ const Contact = () => {
           <div className="flex justify-center mt-6">
             <a
               target="_blank"
-              href="https://drive.google.com/file/d/1EKHNZHEHlZvbECFm7XCxAunW4X22aatD/view?usp=sharing"
+              href="https://drive.google.com/file/d/1hDT3cgkvn0ffXQaAfriWG989cW7XM2jC/view?usp=sharing"
               className="bg-blue-500 text-[10px] md:text-sm font-semibold playfair-display  text-white w-16 h-8  md:w-25 md:h-10 flex justify-center items-center rounded-lg hover:bg-blue-600 transition-colors"
             >
               My Resume
