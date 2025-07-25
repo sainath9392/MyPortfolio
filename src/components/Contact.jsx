@@ -1,7 +1,29 @@
 import React from "react";
-import { Element } from "react-scroll";
+
 
 const Contact = () => {
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+
+    formData.append("access_key", "b05a3780-eadc-4f8f-bed0-2878c42b4a58");
+
+    const object = Object.fromEntries(formData);
+    const json = JSON.stringify(object);
+
+    const res = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: json,
+    }).then((res) => res.json());
+
+    if (res.success) {
+      console.log("Success", res);
+    }
+  };
   return (
     <div id="contact" className="h-[100vh] w-[100vw] overflow-hidden relative">
       <video
@@ -25,13 +47,10 @@ const Contact = () => {
           I would love to hear from you!
         </span>
       </p>
-      <div class="absolute inset-0 bg-black/40 backdrop-blur-sm z-10">
+      <div className="absolute inset-0 bg-black/40 backdrop-blur-sm z-10">
         <form
           className="w-[80%] md:w-[60%] md:h-[50%] lg:w-[30%] lg:h-[50%] mx-auto bg-white/10 p-5 rounded-lg shadow-lg backdrop-blur-sm mt-60 md:mt-40"
-          onSubmit={(e) => {
-            e.preventDefault();
-            // handle form submission here
-          }}
+          onSubmit={onSubmit}
         >
           <h2 className="text-2xl font-semibold text-white mb-4 text-center">
             Contact Me
