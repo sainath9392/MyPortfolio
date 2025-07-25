@@ -42,7 +42,7 @@ const Contact = () => {
       </video>
 
       <p>
-        <span className="text-lg md:text-xl font-extrabold text-gray-700 absolute top-20 left-1/2 transform -translate-x-1/2">
+        <span className="text-sm md:text-xl font-extrabold text-gray-700 absolute md:top-20 top-40 left-1/2 transform -translate-x-1/2">
           I would love to hear from you!
         </span>
       </p>
@@ -103,7 +103,6 @@ const Contact = () => {
             <p>{messege}</p>
           </div>
         )}
-        
 
         <div className="flex items-center justify-center gap-3 absolute bottom-10 left-1/2 transform -translate-x-1/2">
           <div className="flex justify-center mt-6">
