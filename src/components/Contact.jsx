@@ -1,7 +1,8 @@
 import React from "react";
-
+import { useState } from "react";
 
 const Contact = () => {
+  const [messege, setMessage] = useState("");
   const onSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
@@ -21,7 +22,11 @@ const Contact = () => {
     }).then((res) => res.json());
 
     if (res.success) {
-      console.log("Success", res);
+      setMessage("Message sent successfully!");
+      event.target.reset();
+    }
+    else {
+      setMessage("Failed to send message. Please try again.");
     }
   };
   return (
@@ -93,6 +98,12 @@ const Contact = () => {
             Send
           </button>
         </form>
+        {messege && (
+          <div className="mt-4 text-center text-white">
+            <p>{messege}</p>
+          </div>
+        )}
+        
 
         <div className="flex items-center justify-center gap-3 absolute bottom-10 left-1/2 transform -translate-x-1/2">
           <div className="flex justify-center mt-6">
