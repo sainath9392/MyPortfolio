@@ -86,7 +86,7 @@ npm run dev
 Want to collaborate or hire me?
 
 * 📧 Email: [sainathduvvuri03@gmail.com](mailto:sainathduvvuri03@gmail.com)
-* 🌐 Portfolio: [Live Website]([https://lnkd.in/gjwrJhjB](https://sai-portfolio-2212.vercel.app/))
+* 🌐 Portfolio: [Live Website](https://sai-portfolio-2212.vercel.app/)
 * 📞 Phone: +91 9392777436
 
 ---
