@@ -104,7 +104,7 @@ const Contact = () => {
           </div>
         )}
 
-        <div className="flex items-center justify-center gap-3 absolute bottom-0 rounded-t-4xl bg-black/40 pb-[10px]  w-full left-1/2 transform -translate-x-1/2">
+        <div className="flex items-center justify-center gap-3 absolute bottom-0 bg-black/40 pb-[10px]  w-full left-1/2 transform -translate-x-1/2">
           <div className="flex justify-center mt-6">
             <a
               target="_blank"
