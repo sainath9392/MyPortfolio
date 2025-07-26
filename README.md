@@ -48,7 +48,7 @@ MyPortfolio/
 
 ## 📸 Preview
 
-![Portfolio Screenshot]([https://user-images.githubusercontent.com/your-screenshot.png](https://drive.google.com/file/d/1hDT3cgkvn0ffXQaAfriWG989cW7XM2jC/view?usp=sharing)) <!-- Replace with your actual screenshot URL -->
+![Portfolio Screenshot](https://drive.google.com/file/d/1hDT3cgkvn0ffXQaAfriWG989cW7XM2jC/view?usp=sharing) <!-- Replace with your actual screenshot URL -->
 
 ---
 
