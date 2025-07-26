@@ -104,12 +104,12 @@ const Contact = () => {
           </div>
         )}
 
-        <div className="flex items-center justify-center gap-3 absolute bottom-10 left-1/2 transform -translate-x-1/2">
+        <div className="flex items-center justify-center gap-3 absolute bottom-0 rounded-t-4xl bg-black/40 pb-[10px]  w-full left-1/2 transform -translate-x-1/2">
           <div className="flex justify-center mt-6">
             <a
               target="_blank"
               href="mailto:sainathduvvuri03@gmail.com"
-              className="bg-blue-500 text-[10px] md:text-sm font-semibold playfair-display  text-white w-16 h-8 md:w-25 md:h-10 flex justify-center items-center rounded-lg hover:bg-blue-600 transition-colors"
+              className="hover:ring-4 hover:ring-white bg-gradient-to-br from-blue-500 to-green-500 animate-diagonal bg-blue-500 text-[10px] md:text-sm font-semibold playfair-display  text-white w-16 h-8 md:w-25 md:h-10 flex justify-center items-center rounded-lg hover:bg-blue-600 transition-colors"
             >
               Email
             </a>
@@ -118,7 +118,7 @@ const Contact = () => {
             <a
               target="_blank"
               href="https://drive.google.com/file/d/1hDT3cgkvn0ffXQaAfriWG989cW7XM2jC/view?usp=sharing"
-              className="bg-blue-500 text-[10px] md:text-sm font-semibold playfair-display  text-white w-16 h-8  md:w-25 md:h-10 flex justify-center items-center rounded-lg hover:bg-blue-600 transition-colors"
+              className="hover:ring-4 hover:ring-white bg-gradient-to-br from-blue-500 to-green-500 animate-diagonal bg-blue-500 text-[10px] md:text-sm font-semibold playfair-display  text-white w-16 h-8  md:w-25 md:h-10 flex justify-center items-center rounded-lg hover:bg-blue-600 transition-colors"
             >
               My Resume
             </a>
@@ -127,7 +127,7 @@ const Contact = () => {
             <a
               target="_blank"
               href="https://www.linkedin.com/in/sainath-duvvuri-46ab61292?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BvFIFk8H6SYSRka8sFPehRA%3D%3D"
-              className="bg-blue-500 text-[10px] md:text-sm font-semibold playfair-display text-white w-16 h-8  md:w-25 md:h-10 flex justify-center items-center rounded-lg hover:bg-blue-600 transition-colors"
+              className="hover:ring-4 hover:ring-white bg-gradient-to-br from-blue-500 to-green-500 animate-diagonal bg-blue-500 text-[10px] md:text-sm font-semibold playfair-display text-white w-16 h-8  md:w-25 md:h-10 flex justify-center items-center rounded-lg hover:bg-blue-600 transition-colors"
             >
               LinkedIn
             </a>
@@ -136,7 +136,7 @@ const Contact = () => {
             <a
               href="https://github.com/sainath9392"
               target="_blank"
-              className="bg-blue-500 text-[10px] md:text-sm font-semibold playfair-display text-white w-16 h-8  md:w-25 md:h-10 flex justify-center items-center rounded-lg hover:bg-blue-600 transition-colors"
+              className="hover:ring-4 hover:ring-white bg-gradient-to-br from-blue-500 to-green-500 animate-diagonal bg-blue-500 text-[10px] md:text-sm font-semibold playfair-display text-white w-16 h-8  md:w-25 md:h-10 flex justify-center items-center rounded-lg hover:bg-blue-600 transition-colors"
             >
               GitHub
             </a>
