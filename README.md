@@ -2,7 +2,7 @@
 
 Welcome to my personal portfolio — a responsive and modern web application built using **React.js**, **Tailwind CSS**, and enhanced with **smooth animations** and **real-time features**.
 
-[🔗 Live Preview](https://lnkd.in/gjwrJhjB)   |   [📂 GitHub Source](https://github.com/sainath9392/MyPortfolio)
+[🔗 Live Preview](https://sai-portfolio-2212.vercel.app/)   |   [📂 GitHub Source](https://github.com/sainath9392/MyPortfolio)
 
 ---
 
@@ -84,9 +84,9 @@ npm run dev
 
 Want to collaborate or hire me?
 
-* 📧 Email: [lokeshbudda1214@gmail.com](mailto:lokeshbudda1214@gmail.com)
-* 🌐 Portfolio: [Live Website](https://lnkd.in/gjwrJhjB)
-* 📞 Phone: +91 6301517771
+* 📧 Email: [sainathduvvuri03@gmail.com](mailto:sainathduvvuri03@gmail.com)
+* 🌐 Portfolio: [Live Website]([https://lnkd.in/gjwrJhjB](https://sai-portfolio-2212.vercel.app/))
+* 📞 Phone: +91 9392777436
 
 ---
 
