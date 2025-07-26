@@ -48,7 +48,8 @@ MyPortfolio/
 
 ## 📸 Preview
 
-![Portfolio Screenshot](https://drive.google.com/file/d/1hDT3cgkvn0ffXQaAfriWG989cW7XM2jC/view?usp=sharing) <!-- Replace with your actual screenshot URL -->
+<img width="1901" height="908" alt="image" src="https://github.com/user-attachments/assets/ccf577ba-970e-4843-aef7-46f1ed2544e7" />
+ <!-- Replace with your actual screenshot URL -->
 
 ---
 
