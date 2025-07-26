@@ -48,7 +48,7 @@ const Contact = () => {
       </p>
 
       <p>
-        <span className="text-sm md:text-xl text-gray-300 z-20 absolute md:top-20 top-40 left-1/2 transform -translate-x-1/2">
+        <span className="text-sm md:text-xl font-extrabold text-gray-300 z-20 absolute md:top-20 top-40 left-1/2 transform -translate-x-1/2">
           I would love to hear from you!
         </span>
       </p>
