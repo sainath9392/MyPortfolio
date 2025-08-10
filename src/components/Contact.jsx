@@ -117,7 +117,7 @@ const Contact = () => {
           <div className="flex justify-center mt-6">
             <a
               target="_blank"
-              href="https://drive.google.com/file/d/1rXq4UBljZE3u23l1Lpg_FQbCgoDv_Qc_/view?usp=sharing"
+              href="https://drive.google.com/file/d/14RY_3hYDEacKpME8Ull42fsfExay2U73/view?usp=sharing"
               className="hover:ring-4 hover:ring-white bg-gradient-to-br from-blue-500 to-green-500 animate-diagonal bg-blue-500 text-[10px] md:text-sm font-semibold playfair-display  text-white w-16 h-8  md:w-25 md:h-10 flex justify-center items-center rounded-lg hover:bg-blue-600 transition-colors"
             >
               My Resume
