@@ -3,11 +3,15 @@ import React, { useEffect, useRef } from "react";
 const CircularCursor = ({ color1 = "#ffffff", color2 = "#00ffff" }) => {
   const canvasRef = useRef(null);
   const trail = useRef([]);
+  const mousePos = useRef({ x: 0, y: 0 });
+  const requestRef = useRef();
   const pointerSize = 10; // Increased pointer head size
   const maxTrailLength = 40; // Longer tail
 
   useEffect(() => {
     const canvas = canvasRef.current;
+    if (!canvas) return;
+    
     const ctx = canvas.getContext("2d");
 
     const setCanvasSize = () => {
@@ -20,6 +24,8 @@ const CircularCursor = ({ color1 = "#ffffff", color2 = "#00ffff" }) => {
     };
 
     const handleMouseMove = (e) => {
+      mousePos.current = { x: e.clientX, y: e.clientY };
+      
       trail.current.push({
         x: e.clientX,
         y: e.clientY,
@@ -46,7 +52,14 @@ const CircularCursor = ({ color1 = "#ffffff", color2 = "#00ffff" }) => {
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      // Draw trail segments with sharper taper
+      // Dynamically fetch theme accent for cursor glow
+      const themeAccent = getComputedStyle(document.body).getPropertyValue('--theme-accent').trim() || color2;
+
+      // Update alpha for ALL points and filter out invisible ones
+      trail.current.forEach(p => p.alpha -= 0.04);
+      trail.current = trail.current.filter(p => p.alpha > 0);
+
+      // Draw trail segments
       for (let i = 1; i < trail.current.length; i++) {
         const p1 = trail.current[i - 1];
         const p2 = trail.current[i];
@@ -56,36 +69,33 @@ const CircularCursor = ({ color1 = "#ffffff", color2 = "#00ffff" }) => {
         ctx.moveTo(p1.x, p1.y);
         ctx.lineTo(p2.x, p2.y);
         ctx.strokeStyle = `rgba(255, 255, 255, ${alpha})`;
-        ctx.lineWidth = pointerSize * 1.2 * alpha; // bigger initial trail
+        ctx.lineWidth = pointerSize * 1.2 * alpha;
         ctx.lineCap = "round";
         ctx.shadowBlur = 15 * alpha;
-        ctx.shadowColor = color1;
+        ctx.shadowColor = themeAccent;
         ctx.stroke();
-
-        // Fade alpha for shooting effect
-        p2.alpha -= 0.03; // slower fade to retain long trail
       }
 
-      // Draw glowing head
-      if (trail.current.length) {
-        const head = trail.current[trail.current.length - 1];
-        ctx.beginPath();
-        ctx.arc(head.x, head.y, pointerSize * 1.2, 0, Math.PI * 2);
-        ctx.fillStyle = color2;
-        ctx.shadowBlur = 30;
-        ctx.shadowColor = color2;
-        ctx.fill();
-      }
+      // Draw glowing head at actual mouse position
+      ctx.beginPath();
+      ctx.arc(mousePos.current.x, mousePos.current.y, pointerSize * 1.2, 0, Math.PI * 2);
+      ctx.fillStyle = themeAccent;
+      ctx.shadowBlur = 30;
+      ctx.shadowColor = themeAccent;
+      ctx.fill();
 
-      requestAnimationFrame(animate);
+      requestRef.current = requestAnimationFrame(animate);
     };
 
-    animate();
+    requestRef.current = requestAnimationFrame(animate);
 
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("resize", setCanvasSize);
       document.removeEventListener("visibilitychange", handleVisibilityChange);
+      if (requestRef.current) {
+        cancelAnimationFrame(requestRef.current);
+      }
     };
   }, [color1, color2]);
 
@@ -107,3 +117,5 @@ const CircularCursor = ({ color1 = "#ffffff", color2 = "#00ffff" }) => {
 };
 
 export default CircularCursor;
+
+
