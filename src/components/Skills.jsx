@@ -32,7 +32,7 @@ const Skills = () => {
       skills: [
         { name: "Docker / Git", icon: "/svg/icons8-docker-48.png" },
         { name: "Postman / GitHub", icon: "/svg/icons8-postman-api-64.png" },
-        { name: "Vercel / Render", icon: "/svg/vite.svg" },
+        { name: "Vercel / Render", icon: "/svg/vercel.png" },
         { name: "JWT / Microservices", icon: "/svg/icons8-github-30.png" }
       ]
     }
