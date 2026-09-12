@@ -1,11 +1,30 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Send, FileText, CheckCircle2, AlertCircle, MapPin, Globe } from "lucide-react";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { MdEmail } from "react-icons/md";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Contact = () => {
-  const [messege, setMessage] = useState("");
-  
+  const [message, setMessage] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const sectionRef = useRef(null);
+  const formCardRef = useRef(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Setup triggers if needed
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   const onSubmit = async (event) => {
     event.preventDefault();
+    setIsSubmitting(true);
     const formData = new FormData(event.target);
 
     formData.append("access_key", "b05a3780-eadc-4f8f-bed0-2878c42b4a58");
@@ -13,184 +32,212 @@ const Contact = () => {
     const object = Object.fromEntries(formData);
     const json = JSON.stringify(object);
 
-    const res = await fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      body: json,
-    }).then((res) => res.json());
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: json,
+      }).then((res) => res.json());
 
-    if (res.success) {
-      setMessage("PROTOCOL_SUCCESS: TRANSMISSION_RECEIVED");
-      event.target.reset();
-    } else {
-      setMessage("PROTOCOL_ERROR: UPLINK_FAILURE");
+      if (res.success) {
+        setMessage("TRANSMISSION_SUCCESS: Message delivered successfully.");
+        event.target.reset();
+      } else {
+        setMessage("TRANSMISSION_ERROR: Uplink failed. Please try again.");
+      }
+    } catch {
+      setMessage("TRANSMISSION_ERROR: Network error occurred.");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
   return (
-    <div id="contact" className="min-h-screen w-full relative overflow-hidden bg-transparent font-mono">
-      {/* Background Video Layer */}
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover z-0 opacity-40"
-      >
-        <source src="/videos/back.mp4" type="video/mp4" />
-      </video>
+    <div 
+      id="contact" 
+      ref={sectionRef} 
+      className="w-full min-h-screen md:h-screen md:max-h-screen relative overflow-hidden bg-transparent font-sans flex flex-col justify-between px-4 md:px-10 pt-16 sm:pt-20 lg:pt-20 pb-3 select-none"
+    >
+      {/* Delicate Light Grid Overlay */}
+      <div 
+        className="absolute inset-0 z-0 opacity-20 pointer-events-none" 
+        style={{ 
+          backgroundImage: "linear-gradient(rgba(0,0,0,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px)", 
+          backgroundSize: "48px 48px" 
+        }}
+      ></div>
 
-      {/* Grid Overlay for Tactical Feel */}
-      <div className="absolute inset-0 z-0 opacity-20 pointer-events-none bg-[linear-gradient(rgba(255,255,255,0)_50%,rgba(255,255,255,0.05)_50%),linear-gradient(90deg,rgba(255,255,255,0.05),rgba(0,0,0,0),rgba(255,255,255,0.05))] bg-[length:100%_4px,3px_100%]"></div>
-
-      <div className="relative z-10 w-full h-full min-h-screen flex flex-col items-center justify-center px-4 pt-4 pb-2">
+      <div className="relative z-10 w-full max-w-6xl mx-auto flex-1 flex flex-col justify-center gap-3 sm:gap-5">
         
-        {/* Header Message - Compacted */}
+        {/* Header */}
         <motion.div 
-          initial={{ y: -20, opacity: 0 }}
+          initial={{ y: -15, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true }}
-          className="text-center mb-4"
+          transition={{ duration: 0.6 }}
+          className="w-full text-left"
         >
-          <span className="text-[7px] tracking-[0.5em] uppercase animate-pulse block mb-1" style={{ color: 'var(--theme-accent)' }}>
-            [ ESTABLISHING_COMM_LINK ]
+          <span className="text-[10px] md:text-xs font-mono tracking-[0.3em] uppercase block mb-1 text-zinc-500">
+            [ CONTACT // COMM_CHANNEL ]
           </span>
-          <h2 className="text-xl md:text-3xl font-bold text-white tracking-tighter uppercase">
-            OPEN_<span style={{ color: 'var(--theme-accent)' }}>CHANNELS</span>
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-mono font-bold text-zinc-950 tracking-tight flex items-center gap-2 justify-start uppercase">
+            <span style={{ color: "var(--theme-accent)" }}>{">"}</span>
+            GET_IN_<span style={{ color: "var(--theme-accent)" }}>TOUCH</span>
+            <span 
+              className="w-1.5 h-5 md:w-2 md:h-8 animate-pulse ml-1" 
+              style={{ backgroundColor: "var(--theme-accent)", boxShadow: "0 0 10px var(--theme-glow)" }}
+            ></span>
           </h2>
         </motion.div>
 
-        {/* Tactical Contact Form Frame - Compacted */}
-        <motion.div 
-          initial={{ scale: 0.95, opacity: 0 }}
-          whileInView={{ scale: 1, opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="relative w-full max-w-lg group scale-[0.85] md:scale-90 lg:scale-100"
-        >
-          {/* HUD Corner Accents */}
-          <div className="absolute -top-1 -left-1 w-4 h-4 border-t-2 border-l-2 z-20" style={{ borderColor: 'var(--theme-accent)' }}></div>
-          <div className="absolute -bottom-1 -right-1 w-4 h-4 border-b-2 border-r-2 z-20" style={{ borderColor: 'var(--theme-accent)' }}></div>
+        {/* 2-Column Split: Uplink Info & Socials (Left 5 cols) + Form Card (Right 7 cols) */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6 items-stretch w-full">
           
-          <div className="bg-black/80 backdrop-blur-3xl border border-white/10 p-5 md:p-8 relative overflow-hidden shadow-[0_0_50px_rgba(34,211,238,0.1)]">
-            {/* Scanline Animation inside form */}
+          {/* Left Column: Direct Uplink Info + Quick Social Links (5 cols) */}
+          <div className="md:col-span-5 flex flex-col justify-between gap-3">
+            <div className="p-4 sm:p-5 rounded-2xl bg-white border border-zinc-200/80 shadow-sm flex flex-col gap-3">
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: "var(--theme-accent)" }}></div>
+                <span className="text-[11px] font-mono uppercase tracking-widest text-zinc-500 font-semibold">
+                  Transmissions Online
+                </span>
+              </div>
+              <p className="text-xs sm:text-sm text-zinc-600 font-light leading-relaxed">
+                Open for high-impact Full-Stack engineering roles, backend microservice architecture, and AI-driven web systems.
+              </p>
+              
+              <div className="flex flex-col gap-1.5 pt-2 border-t border-zinc-100 text-xs font-mono text-zinc-700">
+                <div className="flex items-center gap-2">
+                  <MapPin className="w-3.5 h-3.5" style={{ color: "var(--theme-accent)" }} />
+                  <span>Hyderabad, India (IST / UTC+5:30)</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Globe className="w-3.5 h-3.5 text-zinc-400" />
+                  <span>Remote / Hybrid Available</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Quick Link Buttons (2x2) */}
+            <div className="grid grid-cols-2 gap-2">
+              {[
+                { label: "Email Me", url: "mailto:sainathduvvuri03@gmail.com", icon: <MdEmail className="w-4 h-4" /> },
+                { label: "Resume PDF", url: "https://drive.google.com/file/d/1zoE7vafskvA1iqPpm66c7GLKzFFFibM2/view?usp=sharing", icon: <FileText className="w-4 h-4" /> },
+                { label: "LinkedIn", url: "https://www.linkedin.com/in/sainath-duvvuri-46ab61292", icon: <FaLinkedin className="w-4 h-4" /> },
+                { label: "GitHub", url: "https://github.com/sainath9392", icon: <FaGithub className="w-4 h-4" /> }
+              ].map((item) => (
+                <motion.a
+                  key={item.label}
+                  whileHover={{ y: -2, scale: 1.02 }}
+                  href={item.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 p-2.5 rounded-xl bg-white border border-zinc-200/80 hover:border-zinc-300 hover:bg-zinc-50 shadow-sm transition-all text-xs font-mono text-zinc-800 hover:text-zinc-950"
+                >
+                  <span style={{ color: "var(--theme-accent)" }}>{item.icon}</span>
+                  <span className="font-semibold truncate">{item.label}</span>
+                </motion.a>
+              ))}
+            </div>
+          </div>
+
+          {/* Right Column: Contact Form Card (7 cols) */}
+          <div 
+            ref={formCardRef} 
+            className="md:col-span-7 relative group rounded-2xl bg-white border border-zinc-200/80 p-4 sm:p-5 shadow-lg overflow-hidden flex flex-col justify-between"
+          >
+            {/* Top Accent Line */}
             <div 
-              className="absolute inset-0 pointer-events-none bg-[length:100%_8px] opacity-20"
-              style={{ backgroundImage: 'linear-gradient(rgba(var(--theme-accent-rgb), 0.03) 50%, transparent 50%)' }}
+              className="absolute top-0 left-0 right-0 h-[2px]"
+              style={{ backgroundImage: "linear-gradient(90deg, transparent, var(--theme-accent), transparent)" }}
             ></div>
 
-            <form onSubmit={onSubmit} className="relative z-10 space-y-3">
-              <div className="flex justify-between items-center mb-2 border-b border-white/10 pb-2">
-                <span className="text-[6px] text-gray-500 tracking-widest uppercase">Encryption: AES-256</span>
-                <span className="text-[6px] tracking-widest uppercase" style={{ color: 'rgba(var(--theme-accent-rgb), 0.5)' }}>Status: Secure_Uplink</span>
+            <form onSubmit={onSubmit} className="relative z-10 space-y-2.5">
+              <div className="flex justify-between items-center border-b border-zinc-100 pb-1.5 text-[11px] font-mono text-zinc-500">
+                <span className="uppercase">Direct Uplink</span>
+                <span style={{ color: "var(--theme-accent)" }}>● ACTIVE_RECEIVER</span>
               </div>
 
-              <div className="space-y-2">
-                <div className="relative">
-                  <label className="text-[6px] uppercase tracking-widest block mb-0.5 ml-1" style={{ color: 'rgba(var(--theme-accent-rgb), 0.7)' }}>Identity_ID</label>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                <div>
+                  <label className="text-[11px] font-mono uppercase tracking-wider block mb-1 text-zinc-700">Name</label>
                   <input
                     type="text"
                     name="name"
                     required
-                    placeholder="ENTER_NAME"
-                    className="w-full bg-white/5 border border-white/10 px-3 py-2 text-white text-[10px] focus:outline-none transition-all"
-                    style={{ '--focus-border': 'var(--theme-accent)', '--focus-bg': 'rgba(var(--theme-accent-rgb), 0.05)' }}
+                    placeholder="e.g. John Doe"
+                    className="w-full bg-zinc-50 border border-zinc-200 rounded-xl px-3 py-2 text-zinc-900 text-xs focus:outline-none focus:border-red-500 focus:bg-white transition-all placeholder:text-zinc-400"
                   />
                 </div>
 
-                <div className="relative">
-                  <label className="text-[6px] uppercase tracking-widest block mb-0.5 ml-1" style={{ color: 'rgba(var(--theme-accent-rgb), 0.7)' }}>Node_Address</label>
+                <div>
+                  <label className="text-[11px] font-mono uppercase tracking-wider block mb-1 text-zinc-700">Email</label>
                   <input
                     type="email"
                     name="email"
                     required
-                    placeholder="ENTER_EMAIL"
-                    className="w-full bg-white/5 border border-white/10 px-3 py-2 text-white text-[10px] focus:outline-none transition-all"
-                    style={{ '--focus-border': 'var(--theme-accent)', '--focus-bg': 'rgba(var(--theme-accent-rgb), 0.05)' }}
+                    placeholder="e.g. john@example.com"
+                    className="w-full bg-zinc-50 border border-zinc-200 rounded-xl px-3 py-2 text-zinc-900 text-xs focus:outline-none focus:border-red-500 focus:bg-white transition-all placeholder:text-zinc-400"
                   />
-                </div>
-
-                <div className="relative">
-                  <label className="text-[6px] uppercase tracking-widest block mb-0.5 ml-1" style={{ color: 'rgba(var(--theme-accent-rgb), 0.7)' }}>Transmission_Data</label>
-                  <textarea
-                    name="message"
-                    rows="2"
-                    required
-                    placeholder="ENTER_MESSAGE_PACKET"
-                    className="w-full bg-white/5 border border-white/10 px-3 py-2 text-white text-[10px] focus:outline-none transition-all resize-none"
-                    style={{ '--focus-border': 'var(--theme-accent)', '--focus-bg': 'rgba(var(--theme-accent-rgb), 0.05)' }}
-                  ></textarea>
                 </div>
               </div>
 
+              <div>
+                <label className="text-[11px] font-mono uppercase tracking-wider block mb-1 text-zinc-700">Message</label>
+                <textarea
+                  name="message"
+                  rows="2"
+                  required
+                  placeholder="Write your transmission..."
+                  className="w-full bg-zinc-50 border border-zinc-200 rounded-xl px-3 py-2 text-zinc-900 text-xs focus:outline-none focus:border-red-500 focus:bg-white transition-all resize-none placeholder:text-zinc-400"
+                ></textarea>
+              </div>
+
               <motion.button
-                whileHover={{ scale: 1.02, backgroundColor: 'var(--theme-accent)', color: "#000" }}
+                whileHover={{ scale: 1.01 }}
                 whileTap={{ scale: 0.98 }}
+                disabled={isSubmitting}
                 type="submit"
-                className="w-full border-2 py-2 font-bold uppercase text-[9px] tracking-[0.2em] transition-all"
-                style={{ borderColor: 'var(--theme-accent)', color: 'var(--theme-accent)' }}
+                className="w-full py-2.5 rounded-xl font-mono font-bold uppercase text-xs tracking-wider text-white shadow-md shadow-red-500/20 bg-red-600 hover:bg-red-700 transition-all duration-300 cursor-pointer flex items-center justify-center gap-2"
               >
-                EXECUTE_TRANSMISSION
+                <span>{isSubmitting ? "TRANSMITTING..." : "SEND TRANSMISSION"}</span>
+                <Send className="w-3 h-3" />
               </motion.button>
 
-              {messege && (
-                <motion.p 
-                  initial={{ opacity: 0, y: 10 }}
+              {message && (
+                <motion.div 
+                  initial={{ opacity: 0, y: 5 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="text-center text-[7px] pt-1 animate-pulse"
-                  style={{ color: 'var(--theme-accent)' }}
+                  className="flex items-center justify-center gap-1.5 text-[11px] font-mono pt-1"
+                  style={{ color: message.includes("SUCCESS") ? "#059669" : "var(--theme-accent)" }}
                 >
-                  {messege}
-                </motion.p>
+                  {message.includes("SUCCESS") ? <CheckCircle2 className="w-3.5 h-3.5" /> : <AlertCircle className="w-3.5 h-3.5" />}
+                  <span>{message}</span>
+                </motion.div>
               )}
             </form>
           </div>
-        </motion.div>
 
-        {/* Standardized Tactical Social Bar - Compacted */}
-        <motion.div 
-          initial={{ y: 50, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true }}
-          className="w-full max-w-4xl mt-4 border-t border-white/10 pt-4"
-        >
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
-            {[
-              { label: "MAIL_CHANNEL", url: "mailto:sainathduvvuri03@gmail.com", id: "01" },
-              { label: "RESUME_NODE", url: "https://drive.google.com/file/d/1zoE7vafskvA1iqPpm66c7GLKzFFFibM2/view?usp=sharing", id: "02" },
-              { label: "LINKED_SYSTEM", url: "https://www.linkedin.com/in/sainath-duvvuri-46ab61292", id: "03" },
-              { label: "GIT_ARCHIVE", url: "https://github.com/sainath9392", id: "04" }
-            ].map((link) => (
-              <motion.a
-                key={link.id}
-                whileHover={{ y: -2 }}
-                href={link.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex flex-col items-center bg-black/40 border border-white/5 p-2 transition-all"
-                style={{ '--hover-border': 'rgba(var(--theme-accent-rgb), 0.5)' }}
-              >
-                <span className="text-[5px] text-gray-500 mb-0.5">ACCESS_POINT_{link.id}</span>
-                <span className="text-[8px] text-white group-hover:text-cyan-400 font-bold tracking-widest transition-colors uppercase" style={{ '--hover-text': 'var(--theme-accent)' }}>
-                  {link.label}
-                </span>
-                <div className="w-0 h-[1px] transition-all duration-500 mt-1" style={{ backgroundColor: 'var(--theme-accent)', '--group-hover-width': '100%' }}></div>
-              </motion.a>
-            ))}
-          </div>
-        </motion.div>
-
-        {/* Footer Technical Stamp - Compacted */}
-        <div className="mt-4 text-[6px] text-gray-600 tracking-[0.8em] uppercase">
-          © 2024 SAINATH_DUVVURI // CORE_SYSTEM_AUTHENTICATED
         </div>
+
+      </div>
+
+      {/* Footer Technical Stamp */}
+      <div className="relative z-10 w-full flex justify-between items-center text-[10px] font-mono text-zinc-500 tracking-widest uppercase border-t border-zinc-200 pt-2 max-w-6xl mx-auto">
+        <span>© {new Date().getFullYear()} SAINATH DUVVURI</span>
+        <span className="hidden sm:inline font-semibold">FULL STACK & AI SPECIALIST</span>
+        <button 
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          className="hover:text-zinc-950 text-zinc-700 transition-colors cursor-pointer"
+        >
+          [ BACK_TO_TOP ↑ ]
+        </button>
       </div>
     </div>
   );
 };
 
 export default Contact;
-

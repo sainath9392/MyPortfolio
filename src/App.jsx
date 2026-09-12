@@ -8,6 +8,7 @@ import Projects from './components/Projects'
 import Contact from './components/Contact'
 import Preloader from './components/Preloader'
 import CircularCursor from './components/CircularCursor'
+import FlowingBackgroundOrb from './components/FlowingBackgroundOrb'
 import { AnimatePresence, motion } from 'framer-motion'
 
 import gsap from 'gsap'
@@ -28,19 +29,19 @@ const App = () => {
       };
 
       const sections = [
-        { id: 'hero', color: '#000000', accent: '#dc2626', cardAccent: '#ffffff', glow: 'rgba(220,38,38,0.5)' },
-        { id: 'about', color: '#022c22', accent: '#a3e635', cardAccent: '#a3e635', glow: 'rgba(163,230,53,0.5)' },
-        { id: 'skills', color: '#1a0b2e', accent: '#bc13fe', cardAccent: '#bc13fe', glow: 'rgba(188,19,254,0.5)' },
-        { id: 'experience', color: '#dc2626', accent: '#000000', cardAccent: '#ffffff', glow: 'rgba(0,0,0,0.5)' }, 
-        { id: 'projects', color: '#edff66', accent: '#000000', cardAccent: '#edff66', glow: 'rgba(0,0,0,0.5)' }, 
-        { id: 'contact', color: '#000000', accent: '#22d3ee', cardAccent: '#22d3ee', glow: 'rgba(34,211,238,0.5)' }
+        { id: 'hero', color: '#ffffff', accent: '#dc2626', cardAccent: '#18181b', glow: 'rgba(220,38,38,0.2)' },
+        { id: 'about', color: '#f8fafc', accent: '#dc2626', cardAccent: '#18181b', glow: 'rgba(220,38,38,0.2)' },
+        { id: 'skills', color: '#ffffff', accent: '#dc2626', cardAccent: '#18181b', glow: 'rgba(220,38,38,0.2)' },
+        { id: 'experience', color: '#f8fafc', accent: '#dc2626', cardAccent: '#18181b', glow: 'rgba(220,38,38,0.2)' }, 
+        { id: 'projects', color: '#ffffff', accent: '#dc2626', cardAccent: '#18181b', glow: 'rgba(220,38,38,0.2)' }, 
+        { id: 'contact', color: '#f8fafc', accent: '#dc2626', cardAccent: '#18181b', glow: 'rgba(220,38,38,0.2)' }
       ];
 
       sections.forEach((section) => {
         ScrollTrigger.create({
           trigger: `#${section.id}`,
-          start: 'top 25%',
-          end: 'bottom 25%',
+          start: 'top 35%',
+          end: 'bottom 35%',
           onEnter: () => updateTheme(section),
           onEnterBack: () => updateTheme(section),
         });
@@ -56,8 +57,8 @@ const App = () => {
 
         gsap.to('body', {
           backgroundColor: section.color,
-          duration: 0,
-          ease: 'none'
+          duration: 0.6,
+          ease: 'power2.out'
         });
       }
 
@@ -67,6 +68,7 @@ const App = () => {
 
   return (
     <div className="min-h-screen">
+      <FlowingBackgroundOrb />
       <CircularCursor />
       <AnimatePresence>
 
@@ -82,7 +84,7 @@ const App = () => {
         )}
       </AnimatePresence>
 
-      <main className={`${loading ? 'opacity-0' : 'opacity-100'} transition-opacity duration-[1500ms] ease-in-out relative z-10`}>
+      <main className="relative z-10">
         <Navbar />
         <div id="hero"><Hero /></div>
         <About />

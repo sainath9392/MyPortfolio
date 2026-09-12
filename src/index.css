@@ -616,44 +616,44 @@ html {
   --theme-glow: rgba(220,38,38,0.5);
 }
 
-.theme-contact {
-  --theme-accent: rgb(34, 211, 238);
-  --theme-accent-rgb: 34, 211, 238;
-  --theme-card-accent: rgb(34, 211, 238);
-  --theme-card-accent-rgb: 34, 211, 238;
-  --theme-glow: rgba(34,211,238,0.5);
-}
-
 .theme-about {
-  --theme-accent: rgb(163, 230, 53);
-  --theme-accent-rgb: 163, 230, 53;
-  --theme-card-accent: rgb(163, 230, 53);
-  --theme-card-accent-rgb: 163, 230, 53;
-  --theme-glow: rgba(163,230,53,0.5);
+  --theme-accent: rgb(220, 38, 38);
+  --theme-accent-rgb: 220, 38, 38;
+  --theme-card-accent: rgb(255, 255, 255);
+  --theme-card-accent-rgb: 255, 255, 255;
+  --theme-glow: rgba(220, 38, 38, 0.4);
 }
 
 .theme-skills {
-  --theme-accent: rgb(188, 19, 254);
-  --theme-accent-rgb: 188, 19, 254;
-  --theme-card-accent: rgb(188, 19, 254);
-  --theme-card-accent-rgb: 188, 19, 254;
-  --theme-glow: rgba(188,19,254,0.5);
+  --theme-accent: rgb(220, 38, 38);
+  --theme-accent-rgb: 220, 38, 38;
+  --theme-card-accent: rgb(255, 255, 255);
+  --theme-card-accent-rgb: 255, 255, 255;
+  --theme-glow: rgba(220, 38, 38, 0.4);
 }
 
 .theme-experience {
-  --theme-accent: rgb(0, 0, 0);
-  --theme-accent-rgb: 0, 0, 0;
+  --theme-accent: rgb(220, 38, 38);
+  --theme-accent-rgb: 220, 38, 38;
   --theme-card-accent: rgb(255, 255, 255);
   --theme-card-accent-rgb: 255, 255, 255;
-  --theme-glow: rgba(0,0,0,0.5);
+  --theme-glow: rgba(220, 38, 38, 0.4);
 }
 
 .theme-projects {
-  --theme-accent: rgb(0, 0, 0);
-  --theme-accent-rgb: 0, 0, 0;
-  --theme-card-accent: rgb(237, 255, 102);
-  --theme-card-accent-rgb: 237, 255, 102;
-  --theme-glow: rgba(0,0,0,0.5);
+  --theme-accent: rgb(220, 38, 38);
+  --theme-accent-rgb: 220, 38, 38;
+  --theme-card-accent: rgb(255, 255, 255);
+  --theme-card-accent-rgb: 255, 255, 255;
+  --theme-glow: rgba(220, 38, 38, 0.4);
+}
+
+.theme-contact {
+  --theme-accent: rgb(220, 38, 38);
+  --theme-accent-rgb: 220, 38, 38;
+  --theme-card-accent: rgb(255, 255, 255);
+  --theme-card-accent-rgb: 255, 255, 255;
+  --theme-glow: rgba(220, 38, 38, 0.4);
 }
 
 @layer utilities {

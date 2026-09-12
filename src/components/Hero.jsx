@@ -1,241 +1,375 @@
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { 
+  ArrowUpRight, 
+  Send, 
+  Terminal, 
+  Layers, 
+  Cpu, 
+  CheckCircle2, 
+  Sparkles, 
+  MapPin
+} from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 
 const Hero = () => {
   const myRef = useRef(null);
 
+  // Rotating specialties in the hero intro
+  const specialties = [
+    "Full Stack Developer",
+    "AI & ML Engineer",
+    "MERN Stack Specialist",
+    "FastAPI & Python Architect"
+  ];
+  const [specialtyIndex, setSpecialtyIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setSpecialtyIndex((prev) => (prev + 1) % specialties.length);
+    }, 2800);
+    return () => clearInterval(timer);
+  }, []);
+
+  const scrollToSection = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
-    <div id="home" ref={myRef} className="h-dvh w-full overflow-hidden relative bg-transparent">
-      {/* Background Video Implementation */}
-      <div className="absolute inset-0 z-0">
-        <video 
-          autoPlay 
-          loop 
-          muted 
-          playsInline 
-          className="w-full h-full object-cover opacity-60"
-        >
-          <source src="/videos/From KlickPin CF Instagram Growth Tips Inspiration for Fall 31741 - Pin-37788084371845593.mp4" type="video/mp4" />
-        </video>
-        {/* Dark Overlay for HUD contrast */}
-        <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px]"></div>
+    <div 
+      id="home" 
+      ref={myRef} 
+      className="relative w-full min-h-screen md:h-screen md:max-h-screen overflow-hidden flex flex-col justify-between bg-transparent text-zinc-900 select-none"
+    >
+      {/* Subtle Background Pattern & Ambient Lighting */}
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+        {/* Soft radial glow */}
+        <div 
+          className="absolute inset-0 pointer-events-none opacity-40"
+          style={{
+            backgroundImage: "radial-gradient(ellipse 65% 45% at 50% 15%, rgba(var(--theme-accent-rgb), 0.12), transparent 70%)"
+          }}
+        ></div>
+
+        {/* Clean subtle dot matrix grid */}
+        <div 
+          className="absolute inset-0 opacity-40 pointer-events-none"
+          style={{
+            backgroundImage: "radial-gradient(circle at 1px 1px, rgba(0, 0, 0, 0.12) 1px, transparent 0)",
+            backgroundSize: "32px 32px"
+          }}
+        ></div>
+
+        {/* Delicate linear grid accent */}
+        <div 
+          className="absolute inset-0 opacity-[0.03] pointer-events-none"
+          style={{
+            backgroundImage: "linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)",
+            backgroundSize: "96px 96px"
+          }}
+        ></div>
       </div>
 
-      {/* Main Content Layout - Optimized Centering */}
-      <div className="flex relative flex-col min-h-full w-full items-center justify-start md:justify-center px-4 md:px-10 overflow-y-auto overflow-x-hidden z-10 pt-[15vh] md:pt-0 pb-32 md:pb-0 scrollbar-hide">
-        
-        {/* Cyberpunk HUD Identity Matrix */}
-        <motion.div 
-          initial={{ y: 20, opacity: 0, scale: 0.95 }}
-          animate={{ y: 0, opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
-          className="relative w-full max-w-[550px] md:absolute md:top-[160px] md:left-[40px] group/cyber cursor-crosshair z-20 shrink-0"
-        >
-          <div className="relative bg-black/40 backdrop-blur-2xl border-[0.5px] border-white/10 p-4 md:p-6 overflow-hidden transition-all duration-500 shadow-[0_20px_50px_-10px_rgba(0,0,0,0.5)]">
-            <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(255,255,255,0.02)_50%),linear-gradient(90deg,rgba(255,0,0,0.04),rgba(0,255,255,0.01),rgba(0,0,255,0.04))] bg-[length:100%_4px,3px_100%] opacity-20 transition-opacity"></div>
-            
-            <div className="flex flex-col gap-4 md:gap-6 relative z-10">
-              {/* Header: System ID */}
-              <div className="flex justify-between items-start">
-                <div className="flex flex-col">
-                    <div className="flex flex-col">
-                      <span className="text-[7px] md:text-[10px] font-mono tracking-widest uppercase mb-1" style={{ color: 'var(--theme-accent)' }}>
-                        [ EXECUTING_IDENTITY_SHELL ]
-                      </span>
-                      <h1 className="text-xl md:text-4xl font-mono font-bold text-white tracking-tight flex items-center gap-2">
-                        <span style={{ color: 'var(--theme-accent)' }}>{">"}</span>
-                        <motion.span
-                          initial={{ width: 0 }}
-                          animate={{ width: "auto" }}
-                          transition={{ duration: 1.5, delay: 0.5, ease: "linear" }}
-                          className="overflow-hidden whitespace-nowrap inline-block"
-                        >
-                          SAINATH_<span className="text-transparent bg-clip-text" style={{ backgroundImage: 'linear-gradient(to right, var(--theme-accent), #fff)' }}>DUVVURI</span>
-                        </motion.span>
-                        <motion.div
-                          animate={{ rotate: 360 }}
-                          transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-                          className="w-2 h-2 md:w-4 md:h-4 ml-2"
-                          style={{ backgroundColor: 'var(--theme-accent)', boxShadow: '0 0 10px var(--theme-glow)' }}
-                        ></motion.div>
-                      </h1>
-                      
-                      {/* Professional Roles Subtitle */}
-                      <motion.div 
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 1.5 }}
-                        className="flex flex-wrap items-center gap-x-6 gap-y-2 mt-4 md:mt-6 border-l-2 pl-4"
-                        style={{ borderColor: 'var(--theme-accent)' }}
-                      >
-                        {[
-                          "FULL_STACK_DEVELOPER",
-                          "AI_ML_ENGINEER",
-                          "MERN_STACK_DEVELOPER"
-                        ].map((role) => (
-                          <div key={role} className="flex items-center gap-2">
-                            <span className="text-[10px] md:text-sm font-mono font-bold tracking-widest text-white/80">{role}</span>
-                            <span className="text-[10px] text-gray-600 font-mono">//</span>
-                          </div>
-                        ))}
-                      </motion.div>
-                      
-                      {/* Terminal Loading Sequence */}
-                      <motion.div 
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ delay: 2.2 }}
-                        className="flex items-center gap-2 mt-2"
-                      >
-                        <span className="text-[7px] md:text-[9px] text-gray-500 font-mono italic">AUTHENTICATING...</span>
-                        <div className="h-[2px] w-20 bg-gray-800 relative overflow-hidden">
-                          <motion.div 
-                            initial={{ x: "-100%" }}
-                            animate={{ x: "100%" }}
-                            transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
-                            className="absolute inset-0 w-full"
-                            style={{ backgroundColor: 'var(--theme-accent)', opacity: 0.5 }}
-                          />
-                        </div>
-                        <span className="text-[7px] md:text-[9px] font-mono" style={{ color: 'var(--theme-accent)' }}>[READY]</span>
-                      </motion.div>
-                    </div>
-                </div>
-                <div className="flex flex-col items-end shrink-0">
-                  <div className="text-[7px] md:text-[10px] font-mono animate-pulse" style={{ color: 'var(--theme-accent)' }}>● STABLE</div>
-                  <div className="text-[7px] md:text-[10px] text-gray-500 font-mono">HYD_IN</div>
-                </div>
-              </div>
+      {/* Main Container - Centered and strictly fitted for screen size */}
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 pt-20 sm:pt-24 lg:pt-20 pb-2 flex-1 flex flex-col justify-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center">
+          
+          {/* LEFT COLUMN: Identity, Executive Pitch & Action CTAs */}
+          <motion.div 
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="lg:col-span-7 flex flex-col items-start text-left"
+          >
+            {/* Status Pill */}
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.15, duration: 0.4 }}
+              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-100/90 border border-zinc-200/90 shadow-xs mb-2.5 group hover:border-zinc-300 transition-colors"
+            >
+              <span className="relative flex h-2 w-2">
+                <span 
+                  className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75"
+                  style={{ backgroundColor: "var(--theme-accent)" }}
+                ></span>
+                <span 
+                  className="relative inline-flex rounded-full h-2 w-2"
+                  style={{ backgroundColor: "var(--theme-accent)" }}
+                ></span>
+              </span>
+              <span className="text-[11px] font-mono font-medium tracking-wide text-zinc-700">
+                Available for New Roles
+              </span>
+              <span className="text-zinc-300 font-mono text-[10px]">|</span>
+              <span className="inline-flex items-center gap-1 text-[11px] font-mono text-zinc-500">
+                <MapPin className="w-2.5 h-2.5 text-zinc-400" />
+                Hyderabad, IN
+              </span>
+            </motion.div>
 
-              {/* Core Data Segments */}
-              <div className="grid grid-cols-2 gap-2 md:gap-4">
-                <div className="bg-white/5 p-2 md:p-3 relative group/seg transition-all border" style={{ borderColor: 'rgba(var(--theme-accent-rgb), 0.3)' }}>
-                  <div className="absolute -top-1.5 -left-1 px-1 bg-black text-[6px] md:text-[8px] font-mono" style={{ color: 'var(--theme-accent)' }}>CLASS_DATA</div>
-                  <p className="text-white text-[8px] md:text-xs font-mono leading-tight md:leading-relaxed">
-                    FULL_STACK_DEV<br/>
-                    PYTHON_MERN<br/>
-                    AI_ML_GRAD
-                  </p>
-                </div>
-
-                <div className="bg-white/5 p-2 md:p-3 relative group/seg transition-all border" style={{ borderColor: 'rgba(var(--theme-accent-rgb), 0.3)' }}>
-                  <div className="absolute -top-1.5 -left-1 px-1 bg-black text-[6px] md:text-[8px] font-mono" style={{ color: 'var(--theme-accent)' }}>CORE_LOCUS</div>
-                  <p className="text-white text-[8px] md:text-xs font-mono leading-tight md:leading-relaxed">
-                    B.TECH_AI_ML<br/>
-                    HYDERABAD_03<br/>
-                    READY_TO_SHIP
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-4 py-1 overflow-x-auto scrollbar-hide">
-                {[
-                  { label: "GITHUB", url: "https://github.com/sainath9392", icon: <FaGithub /> },
-                  { label: "LINKEDIN", url: "https://www.linkedin.com/in/sainath-duvvuri-46ab61292", icon: <FaLinkedin /> },
-                  { label: "MAIL", url: "mailto:sainathduvvuri03@gmail.com", icon: <MdEmail /> }
-                ].map((item) => (
-                  <motion.a 
-                    key={item.label} 
-                    href={item.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ scale: 1.1, color: 'var(--theme-accent)' }}
-                    className="flex items-center gap-1.5 text-[8px] md:text-xs font-mono text-gray-400 hover:text-white transition-all group/link"
-                  >
-                    <span className="text-sm" style={{ color: 'var(--theme-accent)' }}>{item.icon}</span>
-                    <span className="border-b border-gray-800 group-hover/link:border-accent pb-0.5">{item.label}</span>
-                  </motion.a>
-                ))}
-              </div>
-
-              {/* Footer Stats Strip */}
-              <div className="flex justify-between items-center text-[6px] md:text-[10px] font-mono text-gray-600 border-t pt-2" style={{ borderTopColor: 'rgba(var(--theme-accent-rgb), 0.2)' }}>
-                <span>STREAMS: MERN_REST_API</span>
-                <span className="animate-pulse hidden xs:inline" style={{ color: 'var(--theme-accent)', opacity: 0.3 }}>03_DUVV_SAI</span>
-              </div>
+            {/* Sub-label */}
+            <div className="flex items-center gap-1.5 mb-1">
+              <Sparkles className="w-3 h-3" style={{ color: "var(--theme-accent)" }} />
+              <span className="text-[10px] sm:text-xs font-mono tracking-widest uppercase text-zinc-500 font-medium">
+                Full-Stack Software Engineer & AI Specialist
+              </span>
             </div>
-          </div>
-        </motion.div>
 
-        {/* Cyberpunk Core Directives */}
-        <div className="mt-6 md:mt-0 flex flex-col gap-4 md:gap-8 w-full max-w-[550px] md:w-auto md:absolute md:top-[350px] lg:top-[300px] md:right-[40px] items-center md:items-end z-20 shrink-0">
-          <div className="flex flex-col items-center md:items-end gap-1 px-2">
-            <span className="text-[7px] md:text-[10px] text-gray-500 font-mono tracking-widest uppercase">
-              [ ACCESSING_CAPABILITIES ]
-            </span>
-            <h2 className="text-sm md:text-2xl text-white font-mono font-bold tracking-tight flex items-center gap-2">
-              <span style={{ color: 'var(--theme-accent)' }}>{">"}</span>
-              CORE_<span style={{ color: 'var(--theme-accent)' }}>DIRECTIVES</span>
-              <motion.span 
-                animate={{ opacity: [1, 1, 0, 0] }}
-                transition={{ duration: 0.8, repeat: Infinity, times: [0, 0.5, 0.51, 1] }}
-                className="w-1.5 h-3 md:w-2 md:h-5 ml-1"
-                style={{ backgroundColor: 'var(--theme-accent)' }}
-              ></motion.span>
-            </h2>
-          </div>
-
-          <div className="flex flex-col gap-2 md:gap-4 w-full md:w-64 px-4 md:px-0">
-            {[
-              { id: "01", label: "CREATIVE_UI", color: "#22d3ee" }, // Cyan
-              { id: "02", label: "SECURE_AUTH", color: "#a3e635" }, // Lime
-              { id: "03", label: "SCALABLE_ARCH", color: "#dc2626" } // Red
-            ].map((directive, index) => (
-              <motion.div 
-                key={directive.label}
-                initial={{ x: 20, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ delay: 0.8 + (index * 0.1), duration: 0.5 }}
-                className="group relative flex items-center justify-between px-4 py-2.5 md:px-5 md:py-4 bg-black/40 backdrop-blur-xl border w-full transition-all duration-300 hover:translate-x-[-5px] hover:bg-black/60"
-                style={{ borderColor: `${directive.color}33` }} // 20% opacity hex
+            {/* Name / Headline */}
+            <h1 className="text-2xl sm:text-4xl lg:text-[2.75rem] xl:text-5xl font-extrabold tracking-tight text-zinc-950 leading-[1.12] mb-2">
+              Building scalable systems with{" "}
+              <span 
+                className="text-transparent bg-clip-text inline-block"
+                style={{
+                  backgroundImage: "linear-gradient(135deg, #09090b 20%, var(--theme-accent) 100%)"
+                }}
               >
-                <div className="flex flex-col">
-                  <span className="text-[6px] text-gray-500 font-mono">STREAM_{directive.id}</span>
-                  <span className="text-[10px] md:text-base font-mono font-bold tracking-wider" style={{ color: directive.color }}>
-                    {directive.label}
+                modern code.
+              </span>
+            </h1>
+
+            {/* Animated Specialty Carousel */}
+            <div className="h-6 mb-2 flex items-center overflow-hidden">
+              <span className="text-xs font-mono text-zinc-500 mr-2">Focus:</span>
+              <motion.span
+                key={specialtyIndex}
+                initial={{ y: 12, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                exit={{ y: -12, opacity: 0 }}
+                transition={{ duration: 0.3 }}
+                className="text-xs font-mono font-semibold px-2 py-0.5 rounded border border-zinc-200 bg-zinc-100"
+                style={{ color: "var(--theme-accent)" }}
+              >
+                {specialties[specialtyIndex]}
+              </motion.span>
+            </div>
+
+            {/* Executive Bio */}
+            <p className="text-xs sm:text-sm text-zinc-600 font-normal leading-relaxed max-w-xl mb-3.5">
+              Hi, I'm <strong className="text-zinc-900 font-semibold">Sainath Duvvuri</strong> — Full Stack Developer at <span className="text-zinc-900 font-semibold underline decoration-zinc-300 underline-offset-2">TekTree LLC</span>. 
+              I design and ship end-to-end production web applications using the <span className="text-zinc-900 font-medium">MERN stack</span>, <span className="text-zinc-900 font-medium">FastAPI/Python</span>, and real-time architectures with high performance and intuitive UX.
+            </p>
+
+            {/* Primary & Secondary Action CTAs + Social Badges */}
+            <div className="flex flex-wrap items-center gap-3 mb-3 w-full sm:w-auto">
+              <motion.button
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={() => scrollToSection("projects")}
+                className="px-4 py-2 sm:px-5 sm:py-2.5 rounded-lg font-medium text-xs sm:text-sm text-white flex items-center justify-center gap-1.5 shadow-md transition-all duration-300 cursor-pointer relative overflow-hidden group"
+                style={{
+                  backgroundColor: "var(--theme-accent)",
+                  boxShadow: "0 6px 18px -4px var(--theme-glow)"
+                }}
+              >
+                <div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <span>Explore Projects</span>
+                <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </motion.button>
+
+              <motion.button
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={() => scrollToSection("contact")}
+                className="px-4 py-2 sm:px-5 sm:py-2.5 rounded-lg font-medium text-xs sm:text-sm text-zinc-800 bg-zinc-100 hover:bg-zinc-200/90 border border-zinc-300/80 shadow-xs flex items-center justify-center gap-1.5 transition-all duration-300 cursor-pointer hover:border-zinc-400"
+              >
+                <span>Get In Touch</span>
+                <Send className="w-3 h-3 text-zinc-500" />
+              </motion.button>
+            </div>
+
+            {/* Social Connection Badges */}
+            <div className="flex items-center gap-2">
+              <span className="text-[10px] font-mono text-zinc-400 uppercase tracking-wider mr-1 hidden sm:inline">
+                Connect:
+              </span>
+              {[
+                { label: "GitHub", url: "https://github.com/sainath9392", icon: <FaGithub className="w-3 h-3" /> },
+                { label: "LinkedIn", url: "https://www.linkedin.com/in/sainath-duvvuri-46ab61292", icon: <FaLinkedin className="w-3 h-3" /> },
+                { label: "Email", url: "mailto:sainathduvvuri03@gmail.com", icon: <MdEmail className="w-3 h-3" /> }
+              ].map((social) => (
+                <motion.a
+                  key={social.label}
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ y: -1, scale: 1.03 }}
+                  className="flex items-center gap-1 px-2.5 py-1 rounded-md bg-zinc-100/90 hover:bg-zinc-200/80 border border-zinc-200/90 hover:border-zinc-300 text-zinc-700 hover:text-zinc-950 transition-all text-[11px] font-mono shadow-2xs"
+                >
+                  <span style={{ color: "var(--theme-accent)" }}>{social.icon}</span>
+                  <span>{social.label}</span>
+                </motion.a>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* RIGHT COLUMN: Engineering Dossier / Interactive Card */}
+          <motion.div 
+            initial={{ opacity: 0, x: 15 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.15, ease: "easeOut" }}
+            className="lg:col-span-5 w-full"
+          >
+            <div className="relative rounded-xl bg-white/95 border border-zinc-200/90 shadow-[0_20px_45px_-12px_rgba(0,0,0,0.08),0_0_0_1px_rgba(0,0,0,0.03)] p-4 sm:p-5 overflow-hidden">
+              {/* Top accent line */}
+              <div 
+                className="absolute top-0 left-0 right-0 h-[2px]"
+                style={{
+                  backgroundImage: "linear-gradient(90deg, transparent, var(--theme-accent), transparent)"
+                }}
+              ></div>
+
+              {/* Card Header */}
+              <div className="flex items-center justify-between pb-2.5 mb-2.5 border-b border-zinc-100">
+                <div className="flex items-center gap-1.5">
+                  <div className="w-2 h-2 rounded-full bg-red-400"></div>
+                  <div className="w-2 h-2 rounded-full bg-amber-400"></div>
+                  <div className="w-2 h-2 rounded-full bg-emerald-400"></div>
+                  <span className="ml-1.5 text-[11px] font-mono text-zinc-500 font-medium">
+                    engineering_overview.ts
                   </span>
                 </div>
-                <div className="w-1 h-3 md:h-6 opacity-40 group-hover:opacity-100 transition-opacity" style={{ backgroundColor: directive.color }}></div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
+                <div className="flex items-center gap-1 text-[9px] font-mono text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200/80">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                  PRODUCTION_ACTIVE
+                </div>
+              </div>
 
+              {/* Verified Experience Snapshot */}
+              <div className="space-y-2 mb-2.5">
+                <div className="p-2.5 rounded-lg bg-zinc-50/90 border border-zinc-200/70 hover:border-zinc-300 transition-all">
+                  <div className="flex items-start justify-between mb-0.5">
+                    <span className="text-[9px] font-mono uppercase tracking-wider text-zinc-400 font-medium">Current Role</span>
+                    <span className="text-[9px] font-mono px-1.5 py-0.2 rounded bg-zinc-200/60 text-zinc-600">Dec 2025 – Present</span>
+                  </div>
+                  <h4 className="text-xs sm:text-sm font-semibold text-zinc-900 flex items-center gap-1">
+                    Full Stack Developer
+                    <span className="text-zinc-500 font-normal">@ TekTree LLC</span>
+                  </h4>
+                  <p className="text-[10.5px] text-zinc-500 mt-0.5 leading-snug">
+                    Architecting production systems with React, Node.js, Express, MongoDB, and Python APIs.
+                  </p>
+                </div>
+
+                <div className="p-2 rounded-lg bg-zinc-50/90 border border-zinc-200/70 hover:border-zinc-300 transition-all">
+                  <div className="flex items-start justify-between mb-0.5">
+                    <span className="text-[9px] font-mono uppercase tracking-wider text-zinc-400 font-medium">Credentials</span>
+                    <span className="text-[9px] font-mono px-1.5 py-0.2 rounded bg-zinc-200/60 text-zinc-600">Graduated</span>
+                  </div>
+                  <h4 className="text-xs sm:text-sm font-semibold text-zinc-900">
+                    B.Tech in Artificial Intelligence & ML
+                  </h4>
+                  <p className="text-[10.5px] text-zinc-500 mt-0.5 leading-snug">
+                    Specialized in data structures, algorithms, neural networks, and scalable system design.
+                  </p>
+                </div>
+              </div>
+
+              {/* Core Engineering Capabilities */}
+              <div className="mb-2.5">
+                <div className="flex items-center gap-1.5 mb-1.5">
+                  <Cpu className="w-3 h-3" style={{ color: "var(--theme-accent)" }} />
+                  <span className="text-[10px] font-mono uppercase tracking-widest text-zinc-700 font-semibold">
+                    Core Architectural Pillars
+                  </span>
+                </div>
+                
+                <div className="grid grid-cols-2 gap-1.5">
+                  {[
+                    { title: "MERN Stack Systems", desc: "React 19, Node.js, MongoDB" },
+                    { title: "AI & Fast APIs", desc: "Python, FastAPI, ML" },
+                    { title: "Real-Time Comms", desc: "WebSockets, WebRTC" },
+                    { title: "Clean UI/UX", desc: "TailwindCSS, Framer Motion" }
+                  ].map((pillar) => (
+                    <div 
+                      key={pillar.title}
+                      className="p-1.5 rounded-md bg-zinc-50/80 border border-zinc-200/60 hover:border-zinc-300 transition-colors"
+                    >
+                      <div className="flex items-center gap-1 text-[10px] font-medium text-zinc-800">
+                        <CheckCircle2 className="w-2.5 h-2.5 text-emerald-600 shrink-0" />
+                        <span className="truncate">{pillar.title}</span>
+                      </div>
+                      <div className="text-[8.5px] font-mono text-zinc-400 pl-3.5 truncate">
+                        {pillar.desc}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Tech Stack Pills */}
+              <div>
+                <div className="flex items-center gap-1.5 mb-1.5">
+                  <Layers className="w-3 h-3" style={{ color: "var(--theme-accent)" }} />
+                  <span className="text-[10px] font-mono uppercase tracking-widest text-zinc-700 font-semibold">
+                    Primary Tech Stack
+                  </span>
+                </div>
+                <div className="flex flex-wrap gap-1">
+                  {[
+                    "React.js",
+                    "Node.js",
+                    "Python",
+                    "MongoDB",
+                    "FastAPI",
+                    "Express.js",
+                    "Tailwind CSS",
+                    "REST APIs"
+                  ].map((tech) => (
+                    <span
+                      key={tech}
+                      className="px-1.5 py-0.5 rounded text-[9.5px] font-mono bg-zinc-100 border border-zinc-200/80 text-zinc-700 hover:text-zinc-950 hover:bg-zinc-200/60 transition-all"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Micro Status Terminal Footer */}
+              <div className="mt-2.5 pt-2 border-t border-zinc-100 flex items-center justify-between text-[9px] font-mono text-zinc-400">
+                <span className="flex items-center gap-1">
+                  <Terminal className="w-2.5 h-2.5 text-zinc-400" />
+                  <span>sai.status: ready_to_deploy</span>
+                </span>
+                <span className="text-zinc-400">v2.5.0</span>
+              </div>
+            </div>
+          </motion.div>
+
+        </div>
       </div>
 
-      {/* Standardized Scroll Down Button */}
+      {/* Bottom Scroll Indicator - Compact */}
       <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 2.5, duration: 0.8 }}
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.8, duration: 0.4 }}
+        className="relative z-10 w-full flex flex-col items-center justify-center pb-2 cursor-pointer"
+        onClick={() => scrollToSection("about")}
       >
-        <motion.div 
-          onClick={() => document.getElementById('about').scrollIntoView({ behavior: 'smooth' })}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="group cursor-pointer flex flex-col items-center gap-2"
-        >
-          <div className="flex flex-col items-center">
-            <span className="text-[7px] md:text-[9px] text-white/40 font-mono tracking-[0.4em] uppercase font-bold">
-              [ SCROLL_TO_EXPLORE ]
-            </span>
-            <span className="text-[10px] md:text-sm text-white font-mono font-bold group-hover:bg-white group-hover:text-black px-4 py-1 transition-all uppercase tracking-tighter border border-white/10" style={{ '--hover-bg': 'var(--theme-accent)' }}>
-              INITIATE_EXPLORATION
-            </span>
-          </div>
-          
-          <div className="w-8 h-8 md:w-10 md:h-10 border border-white/20 flex items-center justify-center relative overflow-hidden group-hover:border-white transition-all">
+        <div className="flex flex-col items-center gap-0.5 group">
+          <span className="text-[8.5px] font-mono uppercase tracking-[0.25em] text-zinc-400 group-hover:text-zinc-700 transition-colors">
+            Scroll to explore
+          </span>
+          <motion.div
+            animate={{ y: [0, 2.5, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+            className="w-4 h-6 rounded-full border border-zinc-300 flex items-start justify-center p-0.5 group-hover:border-zinc-400 transition-colors"
+          >
             <motion.div 
-              animate={{ y: [0, 5, 0] }}
+              animate={{ y: [0, 4, 0] }}
               transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-              className="w-0 h-0 border-l-[5px] border-l-transparent border-r-[5px] border-r-transparent border-t-[8px] border-t-white"
-              style={{ borderTopColor: 'rgba(255,255,255,0.8)' }}
-            ></motion.div>
-          </div>
-        </motion.div>
+              className="w-0.8 h-1 rounded-full"
+              style={{ backgroundColor: "var(--theme-accent)" }}
+            />
+          </motion.div>
+        </div>
       </motion.div>
     </div>
   );
