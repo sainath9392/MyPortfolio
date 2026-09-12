@@ -151,7 +151,7 @@ const Hero = () => {
 
             {/* Executive Bio */}
             <p className="text-xs sm:text-sm text-zinc-600 font-normal leading-relaxed max-w-xl mb-3.5">
-              Hi, I'm <strong className="text-zinc-900 font-semibold">Sainath Duvvuri</strong> — Full Stack Developer at <span className="text-zinc-900 font-semibold underline decoration-zinc-300 underline-offset-2">TekTree LLC</span>. 
+              Hi, I'm <strong className="text-zinc-900 font-semibold">Sainath Duvvuri</strong> — Full Stack Developer formerly at <span className="text-zinc-900 font-semibold underline decoration-zinc-300 underline-offset-2">TekTree LLC</span>, actively seeking new opportunities. 
               I design and ship end-to-end production web applications using the <span className="text-zinc-900 font-medium">MERN stack</span>, <span className="text-zinc-900 font-medium">FastAPI/Python</span>, and real-time architectures with high performance and intuitive UX.
             </p>
 
@@ -234,9 +234,9 @@ const Hero = () => {
                     engineering_overview.ts
                   </span>
                 </div>
-                <div className="flex items-center gap-1 text-[9px] font-mono text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200/80">
+                <div className="flex items-center gap-1 text-[9px] font-mono text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200/80">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                  PRODUCTION_ACTIVE
+                  AVAILABLE_IMMEDIATELY
                 </div>
               </div>
 
@@ -244,15 +244,15 @@ const Hero = () => {
               <div className="space-y-2 mb-2.5">
                 <div className="p-2.5 rounded-lg bg-zinc-50/90 border border-zinc-200/70 hover:border-zinc-300 transition-all">
                   <div className="flex items-start justify-between mb-0.5">
-                    <span className="text-[9px] font-mono uppercase tracking-wider text-zinc-400 font-medium">Current Role</span>
-                    <span className="text-[9px] font-mono px-1.5 py-0.2 rounded bg-zinc-200/60 text-zinc-600">Dec 2025 – Present</span>
+                    <span className="text-[9px] font-mono uppercase tracking-wider text-zinc-400 font-medium">Recent Experience</span>
+                    <span className="text-[9px] font-mono px-1.5 py-0.2 rounded bg-zinc-200/60 text-zinc-600">Until June 30</span>
                   </div>
                   <h4 className="text-xs sm:text-sm font-semibold text-zinc-900 flex items-center gap-1">
                     Full Stack Developer
                     <span className="text-zinc-500 font-normal">@ TekTree LLC</span>
                   </h4>
                   <p className="text-[10.5px] text-zinc-500 mt-0.5 leading-snug">
-                    Architecting production systems with React, Node.js, Express, MongoDB, and Python APIs.
+                    Architected production systems with React, Node.js, Express, MongoDB, and Python APIs.
                   </p>
                 </div>
 
@@ -350,7 +350,7 @@ const Hero = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.8, duration: 0.4 }}
-        className="relative z-10 w-full flex flex-col items-center justify-center pb-2 cursor-pointer"
+        className="relative z-10 w-full hidden md:flex flex-col items-center justify-center pb-2 cursor-pointer"
         onClick={() => scrollToSection("about")}
       >
         <div className="flex flex-col items-center gap-0.5 group">

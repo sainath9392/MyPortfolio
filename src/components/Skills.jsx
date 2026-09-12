@@ -1,5 +1,19 @@
 import React, { useRef } from "react";
 import { motion } from "framer-motion";
+import {
+  SiReact,
+  SiNodedotjs,
+  SiMongodb,
+  SiTailwindcss,
+  SiPython,
+  SiTensorflow,
+  SiPandas,
+  SiFlask,
+  SiDocker,
+  SiPostman,
+  SiVercel,
+  SiJsonwebtokens
+} from "react-icons/si";
 
 const Skills = () => {
   const sectionRef = useRef(null);
@@ -11,10 +25,10 @@ const Skills = () => {
       subtitle: "Web Architecture & APIs",
       description: "Engineering high-performance MERN ecosystems with scalable architecture, JWT security, and real-time data flows.",
       skills: [
-        { name: "React.js / Next.js", icon: "/svg/icons8-react-24.png" },
-        { name: "Node.js / Express", icon: "/svg/icons8-nodejs-48.png" },
-        { name: "MongoDB / Mongoose", icon: "/svg/icons8-mongodb-24.png" },
-        { name: "Tailwind / Modern CSS", icon: "/svg/icons8-tailwindcss-48.png" }
+        { name: "React.js / Next.js", icon: <SiReact className="w-4 h-4 text-[#087ea4]" /> },
+        { name: "Node.js / Express", icon: <SiNodedotjs className="w-4 h-4 text-[#5FA04E]" /> },
+        { name: "MongoDB / Mongoose", icon: <SiMongodb className="w-4 h-4 text-[#47A248]" /> },
+        { name: "Tailwind / Modern CSS", icon: <SiTailwindcss className="w-4 h-4 text-[#06B6D4]" /> }
       ]
     },
     {
@@ -23,10 +37,10 @@ const Skills = () => {
       subtitle: "ML, Neural Nets & Fast APIs",
       description: "Developing AI product prototypes with neural networks (CNN/LSTM), predictive modeling, and FastAPI services.",
       skills: [
-        { name: "Python / FastAPI", icon: "/svg/icons8-javascript-48.png" },
-        { name: "TensorFlow / CNN", icon: "/svg/icons8-react-24.png" },
-        { name: "Pandas / Scikit-Learn", icon: "/svg/icons8-rest-api-50.png" },
-        { name: "Flask / WebSockets", icon: "/svg/icons8-express-js-50.png" }
+        { name: "Python / FastAPI", icon: <SiPython className="w-4 h-4 text-[#3776AB]" /> },
+        { name: "TensorFlow / CNN", icon: <SiTensorflow className="w-4 h-4 text-[#FF6F00]" /> },
+        { name: "Pandas / Scikit-Learn", icon: <SiPandas className="w-4 h-4 text-[#150458]" /> },
+        { name: "Flask / WebSockets", icon: <SiFlask className="w-4 h-4 text-zinc-800" /> }
       ]
     },
     {
@@ -35,10 +49,10 @@ const Skills = () => {
       subtitle: "Deployment, CI/CD & Scale",
       description: "Orchestrating cloud deployments and CI/CD pipelines across Vercel, Render, and Dockerized microservices.",
       skills: [
-        { name: "Docker / Git", icon: "/svg/icons8-docker-48.png" },
-        { name: "Postman / REST APIs", icon: "/svg/icons8-postman-api-64.png" },
-        { name: "Vercel / Cloud Platforms", icon: "/svg/vercel.png" },
-        { name: "JWT Auth / Microservices", icon: "/svg/icons8-github-30.png" }
+        { name: "Docker / Git", icon: <SiDocker className="w-4 h-4 text-[#2496ED]" /> },
+        { name: "Postman / REST APIs", icon: <SiPostman className="w-4 h-4 text-[#FF6C37]" /> },
+        { name: "Vercel / Cloud Platforms", icon: <SiVercel className="w-4 h-4 text-zinc-900" /> },
+        { name: "JWT Auth / Microservices", icon: <SiJsonwebtokens className="w-4 h-4 text-[#D63AFF]" /> }
       ]
     }
   ];
@@ -47,7 +61,7 @@ const Skills = () => {
     <div
       id="skills"
       ref={sectionRef}
-      className="w-full min-h-screen md:h-screen md:max-h-screen bg-transparent relative overflow-hidden flex flex-col justify-between px-4 md:px-10 pt-16 sm:pt-20 lg:pt-20 pb-3 transition-colors duration-700 select-none"
+      className="w-full min-h-screen md:h-screen md:max-h-screen bg-transparent relative overflow-x-hidden md:overflow-hidden flex flex-col justify-between px-4 md:px-10 pt-16 sm:pt-20 lg:pt-20 pb-4 transition-colors duration-700 select-none"
     >
       {/* Background Overlays - Delicate Light Grid */}
       <div 
@@ -131,7 +145,7 @@ const Skills = () => {
                       className="flex items-center gap-2 p-2 rounded-lg bg-zinc-50/80 border border-zinc-200/70 hover:border-zinc-300 hover:bg-zinc-100 transition-all group/item"
                     >
                       <div className="w-4 h-4 flex-shrink-0 flex items-center justify-center">
-                        <img src={skill.icon} alt={skill.name} className="w-full h-full object-contain opacity-85 group-hover/item:opacity-100" />
+                        {skill.icon}
                       </div>
                       <span className="text-[11px] text-zinc-800 font-mono group-hover/item:text-zinc-950 transition-colors truncate">
                         {skill.name}
@@ -147,7 +161,7 @@ const Skills = () => {
       </div>
 
       {/* Section Navigation Link */}
-      <div className="relative z-20 w-full flex justify-center pb-2">
+      <div className="relative z-20 w-full hidden md:flex justify-center pb-2">
         <motion.div 
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}

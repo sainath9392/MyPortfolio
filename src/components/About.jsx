@@ -2,34 +2,35 @@ import React, { useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Code2, Cpu, Rocket, FileText, MapPin, CheckCircle2 } from "lucide-react";
+import { FaLinkedin, FaGithub } from "react-icons/fa";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const About = () => {
   const sectionRef = useRef(null);
-  const imageRef = useRef(null);
+  const cardRef = useRef(null);
   const contentRef = useRef(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Parallax effect on profile image
-      if (imageRef.current) {
-        gsap.to(imageRef.current, {
-          y: -25,
-          ease: "none",
+      if (cardRef.current) {
+        gsap.from(cardRef.current, {
+          y: 20,
+          opacity: 0,
+          duration: 0.8,
+          ease: "power2.out",
           scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top bottom",
-            end: "bottom top",
-            scrub: 1
+            trigger: cardRef.current,
+            start: "top 85%",
+            once: true
           }
         });
       }
 
-      // Smooth staggered entrance for text blocks
       if (contentRef.current) {
         gsap.from(contentRef.current.children, {
-          y: 25,
+          y: 20,
           opacity: 0,
           stagger: 0.1,
           duration: 0.7,
@@ -50,7 +51,7 @@ const About = () => {
     <div
       id="about"
       ref={sectionRef}
-      className="w-full min-h-screen md:h-screen md:max-h-screen bg-transparent relative overflow-hidden flex flex-col justify-between px-4 md:px-10 pt-16 sm:pt-20 lg:pt-20 pb-3 transition-colors duration-700 select-none"
+      className="w-full min-h-screen md:h-screen md:max-h-screen bg-transparent relative overflow-x-hidden md:overflow-hidden flex flex-col justify-between px-4 md:px-10 pt-16 sm:pt-20 lg:pt-20 pb-4 select-none"
     >
       {/* Delicate Light Grid Overlay */}
       <div 
@@ -61,9 +62,9 @@ const About = () => {
         }}
       ></div>
 
-      <div className="relative z-10 w-full max-w-6xl mx-auto flex-1 flex flex-col justify-center gap-4 sm:gap-6">
+      <div className="relative z-10 w-full max-w-6xl mx-auto flex-1 flex flex-col justify-center gap-3 sm:gap-5">
         
-        {/* Header */}
+        {/* Section Header */}
         <motion.div 
           initial={{ y: -15, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
@@ -72,7 +73,7 @@ const About = () => {
           className="w-full text-left"
         >
           <span className="text-[10px] font-mono tracking-[0.3em] uppercase mb-1 block text-zinc-500">
-            [ IDENTITY // SYSTEM_PROFILE ]
+            [ PROFILE // EXECUTIVE_SUMMARY ]
           </span>
           <h2 className="text-2xl sm:text-4xl lg:text-5xl font-mono font-bold text-zinc-950 tracking-tight flex items-center gap-2 justify-start uppercase">
             <span style={{ color: "var(--theme-accent)" }}>{">"}</span>
@@ -84,59 +85,120 @@ const About = () => {
           </h2>
         </motion.div>
 
-        {/* Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-10 w-full items-center">
+        {/* 2-Column Balanced Architecture */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 md:gap-8 items-center w-full">
           
-          {/* Narrative Layer (7 cols) */}
-          <div ref={contentRef} className="lg:col-span-7 flex flex-col gap-3 sm:gap-4">
-            <div className="flex items-center gap-2">
-              <div className="w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: "var(--theme-accent)" }}></div>
-              <span className="text-[11px] font-mono uppercase tracking-widest text-zinc-500">
-                ( verified // engineering_profile )
-              </span>
-            </div>
+          {/* Left: Narrative Bio & Engineering Pillars (7 cols) */}
+          <div ref={contentRef} className="lg:col-span-7 flex flex-col gap-3">
             
-            <p className="text-zinc-700 text-xs sm:text-sm lg:text-base font-light leading-relaxed text-justify md:text-left">
-              <span className="text-zinc-950 font-semibold">Strategic Full-Stack Developer</span> at <span className="text-zinc-950 font-medium underline decoration-zinc-300 underline-offset-4">TekTree LLC</span> with verified mastery in the <span className="text-zinc-950 border-b border-red-300">MERN stack and FastAPI/Python</span>. I specialize in architecting <span className="text-zinc-950 font-medium">high-throughput backend microservices</span> and <span className="text-zinc-950 font-medium">real-time communications</span>, connecting <span className="font-mono text-[11px] px-1.5 py-0.5 rounded bg-red-50 text-red-600 border border-red-200">AI_DRIVEN_CAPABILITIES</span> with robust, production web applications.
-            </p>
+            {/* Lead Bio Headline */}
+            <div>
+              <div className="flex items-center gap-2 mb-1.5">
+                <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-mono font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                  OPEN TO WORK • ACTIVELY SEEKING OPPORTUNITIES
+                </span>
+              </div>
+              <p className="text-xs sm:text-sm text-zinc-700 font-normal leading-relaxed text-left">
+                Engineering scalable web platforms, backend microservices, and AI-powered interfaces. With a core focus on the <strong className="text-zinc-950">MERN stack and Python/FastAPI</strong>, I build robust, production-ready systems that handle high traffic, secure authentication, and real-time data flows.
+              </p>
+            </div>
 
-            <div className="grid grid-cols-3 gap-2.5 pt-3 border-t border-zinc-200">
-              <div className="flex flex-col gap-0.5 p-2.5 rounded-xl bg-white border border-zinc-200/80 shadow-sm">
-                <span className="text-[9px] font-mono uppercase text-zinc-400">Status</span>
-                <span className="text-xs font-mono font-bold uppercase text-red-600">Available</span>
+            {/* 3 Core Competency Pillars */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 pt-1">
+              <div className="p-3 rounded-xl bg-white border border-zinc-200/80 shadow-xs hover:border-zinc-300 transition-all flex flex-col gap-1">
+                <div className="flex items-center gap-1.5">
+                  <Code2 className="w-3.5 h-3.5 text-red-600" />
+                  <span className="text-[11px] font-mono font-bold text-zinc-900">Web Architect</span>
+                </div>
+                <p className="text-[10px] text-zinc-500 leading-snug">
+                  Scalable MERN apps, REST/GraphQL APIs, and clean component systems.
+                </p>
               </div>
-              <div className="flex flex-col gap-0.5 p-2.5 rounded-xl bg-white border border-zinc-200/80 shadow-sm">
-                <span className="text-[9px] font-mono uppercase text-zinc-400">Location</span>
-                <span className="text-xs text-zinc-900 font-mono uppercase font-semibold">Hyderabad, IN</span>
+
+              <div className="p-3 rounded-xl bg-white border border-zinc-200/80 shadow-xs hover:border-zinc-300 transition-all flex flex-col gap-1">
+                <div className="flex items-center gap-1.5">
+                  <Cpu className="w-3.5 h-3.5 text-red-600" />
+                  <span className="text-[11px] font-mono font-bold text-zinc-900">AI & Real-Time</span>
+                </div>
+                <p className="text-[10px] text-zinc-500 leading-snug">
+                  WebSockets, WebRTC video calling, and predictive Python neural nets.
+                </p>
               </div>
-              <div className="flex flex-col gap-0.5 p-2.5 rounded-xl bg-white border border-zinc-200/80 shadow-sm">
-                <span className="text-[9px] font-mono uppercase text-zinc-400">Degree</span>
-                <span className="text-xs text-zinc-900 font-mono uppercase font-semibold">B.Tech AI/ML</span>
+
+              <div className="p-3 rounded-xl bg-white border border-zinc-200/80 shadow-xs hover:border-zinc-300 transition-all flex flex-col gap-1">
+                <div className="flex items-center gap-1.5">
+                  <Rocket className="w-3.5 h-3.5 text-red-600" />
+                  <span className="text-[11px] font-mono font-bold text-zinc-900">Production Ready</span>
+                </div>
+                <p className="text-[10px] text-zinc-500 leading-snug">
+                  Clean code, automated testing, and CI/CD deployments.
+                </p>
               </div>
             </div>
+
+            {/* Professional Quick Fact Matrix */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 pt-2 border-t border-zinc-200 text-xs font-mono">
+              <div className="p-2.5 rounded-xl bg-white border border-zinc-200/80 shadow-2xs">
+                <span className="text-[9px] uppercase tracking-wider text-zinc-400 block mb-0.5">Experience</span>
+                <span className="text-xs text-zinc-900 font-semibold">Ex-TekTree • Deepija • Infosys</span>
+              </div>
+              <div className="p-2.5 rounded-xl bg-white border border-zinc-200/80 shadow-2xs">
+                <span className="text-[9px] uppercase tracking-wider text-zinc-400 block mb-0.5">Education</span>
+                <span className="text-xs text-zinc-900 font-semibold">B.Tech in AI & ML</span>
+              </div>
+              <div className="p-2.5 rounded-xl bg-white border border-zinc-200/80 shadow-2xs">
+                <span className="text-[9px] uppercase tracking-wider text-zinc-400 block mb-0.5">Availability</span>
+                <span className="text-xs text-emerald-600 font-bold">Immediately Available</span>
+              </div>
+            </div>
+
           </div>
 
-          {/* Visual Layer (5 cols) with Parallax */}
-          <div className="lg:col-span-5 flex items-center justify-center lg:justify-end">
-            <div ref={imageRef} className="relative group w-full max-w-[180px] sm:max-w-[210px] md:max-w-[230px]">
-              {/* HUD Corner Accents */}
-              <div className="absolute -top-2.5 -left-2.5 w-6 h-6 border-t-2 border-l-2 z-10" style={{ borderColor: "var(--theme-accent)" }}></div>
-              <div className="absolute -bottom-2.5 -right-2.5 w-6 h-6 border-b-2 border-r-2 z-10" style={{ borderColor: "var(--theme-accent)" }}></div>
-              
-              {/* Image Card Container */}
-              <div className="relative w-full overflow-hidden rounded-2xl bg-white border border-zinc-200/80 p-2.5 shadow-xl transition-all duration-500 group-hover:border-zinc-300">
+          {/* Right: Executive Portrait Card (5 cols) */}
+          <div className="lg:col-span-5 flex flex-col items-center justify-center">
+            <div 
+              ref={cardRef} 
+              className="relative w-full max-w-[280px] sm:max-w-[310px] rounded-2xl bg-white border border-zinc-200/80 p-3 shadow-xl flex flex-col gap-3 group hover:border-zinc-300 transition-all duration-300"
+            >
+              {/* Photo Wrapper */}
+              <div className="relative w-full h-48 sm:h-56 overflow-hidden rounded-xl bg-zinc-100 border border-zinc-100">
                 <img 
-                  src="/img/download.png" 
-                  alt="Profile Visual" 
-                  className="w-full h-auto rounded-xl object-contain grayscale group-hover:grayscale-0 group-hover:scale-102 transition-all duration-700"
+                  src="/img/sainath-portrait.png" 
+                  alt="Sainath Duvvuri" 
+                  className="w-full h-full object-cover object-top group-hover:scale-103 transition-transform duration-500"
                 />
-                {/* Laser Scanning Bar */}
-                <motion.div 
-                  animate={{ top: ["0%", "100%", "0%"] }}
-                  transition={{ duration: 3.5, repeat: Infinity, ease: "linear" }}
-                  className="absolute left-0 right-0 h-[2px] z-30 opacity-75"
-                  style={{ backgroundColor: "var(--theme-accent)", boxShadow: "0 0 12px var(--theme-glow)" }}
-                ></motion.div>
+                
+                {/* Floating location tag */}
+                <div className="absolute bottom-2 left-2 right-2 bg-white/90 backdrop-blur-md px-2.5 py-1 rounded-lg border border-zinc-200/80 flex items-center justify-between shadow-xs">
+                  <div className="flex items-center gap-1.5 text-[10px] font-mono text-zinc-700 font-medium">
+                    <MapPin className="w-3 h-3 text-red-600" />
+                    <span>Hyderabad, India</span>
+                  </div>
+                  <span className="text-[9px] font-mono text-emerald-600 font-bold">● Available Immediately</span>
+                </div>
+              </div>
+
+              {/* Action Credentials */}
+              <div className="grid grid-cols-2 gap-2">
+                <a 
+                  href="https://drive.google.com/file/d/1zoE7vafskvA1iqPpm66c7GLKzFFFibM2/view?usp=sharing"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-1.5 py-2 px-3 rounded-lg bg-zinc-900 hover:bg-zinc-950 text-white text-[11px] font-mono font-semibold transition-all shadow-xs cursor-pointer"
+                >
+                  <FileText className="w-3 h-3 text-red-400" />
+                  <span>Resume PDF</span>
+                </a>
+                <a 
+                  href="https://www.linkedin.com/in/sainath-duvvuri-46ab61292"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-1.5 py-2 px-3 rounded-lg bg-zinc-100 hover:bg-zinc-200 text-zinc-800 text-[11px] font-mono font-semibold border border-zinc-200 transition-all cursor-pointer"
+                >
+                  <FaLinkedin className="w-3 h-3 text-blue-600" />
+                  <span>LinkedIn</span>
+                </a>
               </div>
             </div>
           </div>
@@ -146,7 +208,7 @@ const About = () => {
       </div>
 
       {/* Section Navigation Link */}
-      <div className="relative z-20 w-full flex justify-center pb-2">
+      <div className="relative z-20 w-full hidden md:flex justify-center pb-2">
         <motion.div 
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}

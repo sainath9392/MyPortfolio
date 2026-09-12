@@ -2,7 +2,17 @@ import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Briefcase, Calendar, CheckCircle2, ChevronRight } from "lucide-react";
+import { Briefcase, Calendar, CheckCircle2, ChevronRight, Radio, Terminal, Mic, TrendingUp, LayoutDashboard, Zap } from "lucide-react";
+import {
+  SiReact,
+  SiNodedotjs,
+  SiExpress,
+  SiMongodb,
+  SiPython,
+  SiFlask,
+  SiSocketdotio,
+  SiWebrtc
+} from "react-icons/si";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -11,15 +21,21 @@ const experiences = [
     id: "01",
     role: "Full Stack Developer",
     company: "TekTree LLC",
-    period: "Dec 2025 – Present",
+    period: "Dec 2025 – June 30",
     description: [
-      "Designing and shipping end-to-end product features using React, Node.js, Express, MongoDB, and Python APIs.",
-      "Building scalable REST APIs, authentication flows, and data models for production systems.",
-      "Debugging performance bottlenecks and improving reliability across frontend and backend.",
-      "Working closely with product and engineering teams to iterate quickly and deliver user-facing value."
+      "Designed and shipped end-to-end product features using React, Node.js, Express, MongoDB, and Python APIs.",
+      "Built scalable REST APIs, authentication flows, and data models for production systems.",
+      "Debugged performance bottlenecks and improved reliability across frontend and backend.",
+      "Collaborated closely with product and engineering teams to iterate quickly and deliver user-facing value."
     ],
-    tech: ["React", "Node.js", "Express", "MongoDB", "Python"],
-    status: "ACTIVE"
+    tech: [
+      { name: "React", icon: <SiReact className="w-3 h-3 text-[#087ea4]" /> },
+      { name: "Node.js", icon: <SiNodedotjs className="w-3 h-3 text-[#5FA04E]" /> },
+      { name: "Express", icon: <SiExpress className="w-3 h-3 text-zinc-800" /> },
+      { name: "MongoDB", icon: <SiMongodb className="w-3 h-3 text-[#47A248]" /> },
+      { name: "Python", icon: <SiPython className="w-3 h-3 text-[#3776AB]" /> }
+    ],
+    status: "COMPLETE"
   },
   {
     id: "02",
@@ -32,7 +48,12 @@ const experiences = [
       "Diagnosed and resolved system-level issues using logs, API analysis, and code fixes.",
       "Contributed to delivering stable, production-ready features in a cross-functional environment."
     ],
-    tech: ["React", "Node.js", "Telecom APIs", "System Logs"],
+    tech: [
+      { name: "React", icon: <SiReact className="w-3 h-3 text-[#087ea4]" /> },
+      { name: "Node.js", icon: <SiNodedotjs className="w-3 h-3 text-[#5FA04E]" /> },
+      { name: "Telecom APIs", icon: <Radio className="w-3 h-3 text-blue-600" /> },
+      { name: "System Logs", icon: <Terminal className="w-3 h-3 text-zinc-700" /> }
+    ],
     status: "COMPLETE"
   },
   {
@@ -45,7 +66,12 @@ const experiences = [
       "Developed multi-user video meeting features using React, Flask, Socket.IO, and WebRTC.",
       "Focused on real-time data flow, latency reduction, and scalability."
     ],
-    tech: ["WebRTC", "Socket.IO", "Flask", "AI Speech"],
+    tech: [
+      { name: "WebRTC", icon: <SiWebrtc className="w-3 h-3 text-zinc-800" /> },
+      { name: "Socket.IO", icon: <SiSocketdotio className="w-3 h-3 text-zinc-800" /> },
+      { name: "Flask", icon: <SiFlask className="w-3 h-3 text-zinc-800" /> },
+      { name: "AI Speech", icon: <Mic className="w-3 h-3 text-red-500" /> }
+    ],
     status: "COMPLETE"
   },
   {
@@ -58,7 +84,12 @@ const experiences = [
       "Automated forecasting workflows, reducing manual effort by 60%.",
       "Delivered a complete, deployable analytics solution with automated model training."
     ],
-    tech: ["React", "Prophet", "Data Dashboards", "Automation"],
+    tech: [
+      { name: "React", icon: <SiReact className="w-3 h-3 text-[#087ea4]" /> },
+      { name: "Prophet", icon: <TrendingUp className="w-3 h-3 text-emerald-600" /> },
+      { name: "Data Dashboards", icon: <LayoutDashboard className="w-3 h-3 text-indigo-600" /> },
+      { name: "Automation", icon: <Zap className="w-3 h-3 text-amber-500" /> }
+    ],
     status: "COMPLETE"
   }
 ];
@@ -80,7 +111,7 @@ const Experience = () => {
     <div
       id="experience"
       ref={sectionRef}
-      className="w-full min-h-screen md:h-screen md:max-h-screen bg-transparent relative overflow-hidden flex flex-col justify-between px-4 md:px-10 pt-16 sm:pt-20 lg:pt-20 pb-3 transition-colors duration-700 select-none"
+      className="w-full min-h-screen md:h-screen md:max-h-screen bg-transparent relative overflow-x-hidden md:overflow-hidden flex flex-col justify-between px-4 md:px-10 pt-16 sm:pt-20 lg:pt-20 pb-4 transition-colors duration-700 select-none"
     >
       {/* Delicate Light Grid Overlay */}
       <div 
@@ -101,9 +132,15 @@ const Experience = () => {
           transition={{ duration: 0.6 }}
           className="w-full text-left"
         >
-          <span className="text-[10px] text-zinc-500 font-mono tracking-[0.3em] uppercase mb-1 block">
-            [ CAREER // MILESTONES ]
-          </span>
+          <div className="flex items-center justify-between gap-2 mb-1">
+            <span className="text-[10px] text-zinc-500 font-mono tracking-[0.3em] uppercase block">
+              [ CAREER // MILESTONES ]
+            </span>
+            <span className="inline-flex items-center gap-1.5 text-[10px] font-mono text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+              Available for Opportunities
+            </span>
+          </div>
           <h2 className="text-2xl sm:text-4xl lg:text-5xl font-mono font-bold text-zinc-950 tracking-tight flex items-center gap-2 justify-start">
             <span style={{ color: "var(--theme-accent)" }}>{">"}</span>
             WORK_<span style={{ color: "var(--theme-accent)" }}>EXPERIENCE</span>
@@ -125,6 +162,7 @@ const Experience = () => {
                 <button
                   key={exp.id}
                   onClick={() => setActiveId(exp.id)}
+                  onMouseEnter={() => setActiveId(exp.id)}
                   className={`group relative text-left p-3 sm:p-3.5 rounded-xl border transition-all duration-300 flex items-center justify-between cursor-pointer ${
                     isSelected
                       ? "bg-white border-zinc-300 shadow-md ring-1 ring-zinc-200"
@@ -239,12 +277,15 @@ const Experience = () => {
                     Stack & Technologies:
                   </span>
                   <div className="flex flex-wrap gap-1.5">
-                    {activeExp.tech.map((t) => (
+                    {activeExp.tech.map((t, idx) => (
                       <span 
-                        key={t} 
-                        className="text-[10px] font-mono px-2 py-0.5 rounded-md bg-zinc-50 border border-zinc-200 text-zinc-700"
+                        key={idx} 
+                        className="inline-flex items-center gap-1.5 text-[10.5px] font-mono px-2.5 py-1 rounded-lg bg-zinc-50/90 border border-zinc-200/80 text-zinc-800 hover:border-zinc-300 hover:bg-zinc-100 transition-all shadow-2xs"
                       >
-                        {t}
+                        <span className="shrink-0 flex items-center justify-center">
+                          {t.icon}
+                        </span>
+                        <span>{t.name}</span>
                       </span>
                     ))}
                   </div>
@@ -258,7 +299,7 @@ const Experience = () => {
       </div>
 
       {/* Section Navigation Link */}
-      <div className="relative z-20 w-full flex justify-center pb-2">
+      <div className="relative z-20 w-full hidden md:flex justify-center pb-2">
         <motion.div 
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}

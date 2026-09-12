@@ -59,7 +59,7 @@ const Contact = () => {
     <div 
       id="contact" 
       ref={sectionRef} 
-      className="w-full min-h-screen md:h-screen md:max-h-screen relative overflow-hidden bg-transparent font-sans flex flex-col justify-between px-4 md:px-10 pt-16 sm:pt-20 lg:pt-20 pb-3 select-none"
+      className="w-full min-h-screen md:h-screen md:max-h-screen relative overflow-x-hidden md:overflow-hidden bg-transparent font-sans flex flex-col justify-between px-4 md:px-10 pt-16 sm:pt-20 lg:pt-20 pb-4 select-none"
     >
       {/* Delicate Light Grid Overlay */}
       <div 
@@ -169,7 +169,7 @@ const Contact = () => {
                     name="name"
                     required
                     placeholder="e.g. John Doe"
-                    className="w-full bg-zinc-50 border border-zinc-200 rounded-xl px-3 py-2 text-zinc-900 text-xs focus:outline-none focus:border-red-500 focus:bg-white transition-all placeholder:text-zinc-400"
+                    className="w-full bg-zinc-50 border border-zinc-200 rounded-xl px-3 py-2 text-zinc-900 text-sm sm:text-xs focus:outline-none focus:border-red-500 focus:bg-white transition-all placeholder:text-zinc-400"
                   />
                 </div>
 
@@ -180,7 +180,7 @@ const Contact = () => {
                     name="email"
                     required
                     placeholder="e.g. john@example.com"
-                    className="w-full bg-zinc-50 border border-zinc-200 rounded-xl px-3 py-2 text-zinc-900 text-xs focus:outline-none focus:border-red-500 focus:bg-white transition-all placeholder:text-zinc-400"
+                    className="w-full bg-zinc-50 border border-zinc-200 rounded-xl px-3 py-2 text-zinc-900 text-sm sm:text-xs focus:outline-none focus:border-red-500 focus:bg-white transition-all placeholder:text-zinc-400"
                   />
                 </div>
               </div>
@@ -192,7 +192,7 @@ const Contact = () => {
                   rows="2"
                   required
                   placeholder="Write your transmission..."
-                  className="w-full bg-zinc-50 border border-zinc-200 rounded-xl px-3 py-2 text-zinc-900 text-xs focus:outline-none focus:border-red-500 focus:bg-white transition-all resize-none placeholder:text-zinc-400"
+                  className="w-full bg-zinc-50 border border-zinc-200 rounded-xl px-3 py-2 text-zinc-900 text-sm sm:text-xs focus:outline-none focus:border-red-500 focus:bg-white transition-all resize-none placeholder:text-zinc-400"
                 ></textarea>
               </div>
 

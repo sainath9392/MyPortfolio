@@ -4,6 +4,18 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ExternalLink, ChevronRight, ChevronLeft } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
+import {
+  SiReact,
+  SiNodedotjs,
+  SiMongodb,
+  SiTailwindcss,
+  SiExpress,
+  SiGreensock,
+  SiNextdotjs,
+  SiTypescript,
+  SiPostgresql,
+  SiPostman
+} from "react-icons/si";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -18,10 +30,10 @@ const projects = [
       "Features dynamic cart updates, category filtering, and complete order history tracking."
     ],
     tech: [
-      { name: "React.js", icon: "/svg/icons8-react-24.png" },
-      { name: "Node.js", icon: "/svg/icons8-nodejs-48.png" },
-      { name: "MongoDB", icon: "/svg/icons8-mongodb-24.png" },
-      { name: "Tailwind CSS", icon: "/svg/icons8-tailwindcss-48.png" }
+      { name: "React.js", icon: <SiReact className="w-3 h-3 text-[#087ea4]" /> },
+      { name: "Node.js", icon: <SiNodedotjs className="w-3 h-3 text-[#5FA04E]" /> },
+      { name: "MongoDB", icon: <SiMongodb className="w-3 h-3 text-[#47A248]" /> },
+      { name: "Tailwind CSS", icon: <SiTailwindcss className="w-3 h-3 text-[#06B6D4]" /> }
     ],
     live: "https://fashnior.vercel.app",
     github: "https://github.com/sainath9392/fashnior-ecommerce-app"
@@ -36,10 +48,10 @@ const projects = [
       "Built to handle high concurrency with secure JWT authentication and admin analytics."
     ],
     tech: [
-      { name: "React.js", icon: "/svg/icons8-react-24.png" },
-      { name: "Node.js", icon: "/svg/icons8-nodejs-48.png" },
-      { name: "MongoDB", icon: "/svg/icons8-mongodb-24.png" },
-      { name: "Express.js", icon: "/svg/icons8-express-js-50.png" }
+      { name: "React.js", icon: <SiReact className="w-3 h-3 text-[#087ea4]" /> },
+      { name: "Node.js", icon: <SiNodedotjs className="w-3 h-3 text-[#5FA04E]" /> },
+      { name: "MongoDB", icon: <SiMongodb className="w-3 h-3 text-[#47A248]" /> },
+      { name: "Express.js", icon: <SiExpress className="w-3 h-3 text-zinc-800" /> }
     ],
     live: "https://task-manager-chi-ochre.vercel.app/",
     github: "https://github.com/sainath9392/Task-Manager"
@@ -54,9 +66,9 @@ const projects = [
       "Custom cursor dynamics and interactive canvas elements for a luxury gaming aesthetic."
     ],
     tech: [
-      { name: "React.js", icon: "/svg/icons8-react-24.png" },
-      { name: "GSAP", icon: "/svg/greensock-icon-logo-512.png" },
-      { name: "Tailwind CSS", icon: "/svg/icons8-tailwindcss-48.png" }
+      { name: "React.js", icon: <SiReact className="w-3 h-3 text-[#087ea4]" /> },
+      { name: "GSAP", icon: <SiGreensock className="w-3 h-3 text-[#0ae448]" /> },
+      { name: "Tailwind CSS", icon: <SiTailwindcss className="w-3 h-3 text-[#06B6D4]" /> }
     ],
     live: "https://zentry-gaming-website-gilt.vercel.app/",
     github: "https://github.com/sainath9392/Zentry-gaming-website"
@@ -71,10 +83,10 @@ const projects = [
       "Optimized backend worker queues for reliable delivery and zero downtime."
     ],
     tech: [
-      { name: "Node.js", icon: "/svg/icons8-nodejs-48.png" },
-      { name: "Express.js", icon: "/svg/icons8-express-js-50.png" },
-      { name: "MongoDB", icon: "/svg/icons8-mongodb-24.png" },
-      { name: "REST APIs", icon: "/svg/icons8-rest-api-50.png" }
+      { name: "Node.js", icon: <SiNodedotjs className="w-3 h-3 text-[#5FA04E]" /> },
+      { name: "Express.js", icon: <SiExpress className="w-3 h-3 text-zinc-800" /> },
+      { name: "MongoDB", icon: <SiMongodb className="w-3 h-3 text-[#47A248]" /> },
+      { name: "REST APIs", icon: <SiPostman className="w-3 h-3 text-[#FF6C37]" /> }
     ],
     live: "https://email-campaign-scheduler.vercel.app/",
     github: "https://github.com/sainath9392/email-campaign-scheduler"
@@ -89,9 +101,9 @@ const projects = [
       "Features 'Invisible Auth' utilizing lightweight browser tokens and ultra-fast 302 redirects."
     ],
     tech: [
-      { name: "Next.js 14", icon: "/svg/icons8-react-24.png" },
-      { name: "TypeScript", icon: "/svg/icons8-tailwindcss-48.png" },
-      { name: "PostgreSQL", icon: "/svg/icons8-rest-api-50.png" }
+      { name: "Next.js 14", icon: <SiNextdotjs className="w-3 h-3 text-zinc-950" /> },
+      { name: "TypeScript", icon: <SiTypescript className="w-3 h-3 text-[#3178C6]" /> },
+      { name: "PostgreSQL", icon: <SiPostgresql className="w-3 h-3 text-[#4169E1]" /> }
     ],
     live: "https://tinylink-tau.vercel.app/",
     github: "https://github.com/sainath9392/tinylink"
@@ -123,7 +135,7 @@ const Projects = () => {
     <div
       id="projects"
       ref={sectionRef}
-      className="w-full min-h-screen md:h-screen md:max-h-screen bg-transparent relative overflow-hidden flex flex-col justify-between px-4 md:px-10 pt-16 sm:pt-20 lg:pt-20 pb-3 transition-colors duration-700 select-none"
+      className="w-full min-h-screen md:h-screen md:max-h-screen bg-transparent relative overflow-x-hidden md:overflow-hidden flex flex-col justify-between px-4 md:px-10 pt-16 sm:pt-20 lg:pt-20 pb-4 transition-colors duration-700 select-none"
     >
       {/* Delicate Light Grid Overlay */}
       <div 
@@ -159,23 +171,23 @@ const Projects = () => {
           </motion.div>
 
           {/* Quick Prev / Next Controls */}
-          <div className="hidden sm:flex items-center gap-2 font-mono">
+          <div className="flex items-center gap-1.5 sm:gap-2 font-mono">
             <button
               onClick={handlePrev}
-              className="p-2 rounded-lg border border-zinc-300 bg-white hover:bg-zinc-50 text-zinc-700 hover:text-zinc-950 shadow-sm transition-all cursor-pointer"
+              className="p-1.5 sm:p-2 rounded-lg border border-zinc-300 bg-white hover:bg-zinc-50 text-zinc-700 hover:text-zinc-950 shadow-sm transition-all cursor-pointer"
               aria-label="Previous project"
             >
-              <ChevronLeft className="w-4 h-4" />
+              <ChevronLeft className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             </button>
-            <span className="text-xs text-zinc-500 px-1 font-semibold">
+            <span className="text-[11px] sm:text-xs text-zinc-500 px-0.5 sm:px-1 font-semibold">
               {selectedIndex + 1} / {projects.length}
             </span>
             <button
               onClick={handleNext}
-              className="p-2 rounded-lg border border-zinc-300 bg-white hover:bg-zinc-50 text-zinc-700 hover:text-zinc-950 shadow-sm transition-all cursor-pointer"
+              className="p-1.5 sm:p-2 rounded-lg border border-zinc-300 bg-white hover:bg-zinc-50 text-zinc-700 hover:text-zinc-950 shadow-sm transition-all cursor-pointer"
               aria-label="Next project"
             >
-              <ChevronRight className="w-4 h-4" />
+              <ChevronRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             </button>
           </div>
         </div>
@@ -191,6 +203,7 @@ const Projects = () => {
                 <button
                   key={proj.id}
                   onClick={() => setSelectedIndex(idx)}
+                  onMouseEnter={() => setSelectedIndex(idx)}
                   className={`group relative text-left p-2.5 sm:p-3 rounded-xl border transition-all duration-300 flex items-center justify-between cursor-pointer ${
                     isSelected
                       ? "bg-white border-zinc-300 shadow-md ring-1 ring-zinc-200"
@@ -283,7 +296,9 @@ const Projects = () => {
                           key={sIndex}
                           className="flex items-center gap-1.5 bg-zinc-50 px-2 py-1 rounded-md border border-zinc-200/80"
                         >
-                          <img className="w-3 h-3 object-contain opacity-85" src={skill.icon} alt={skill.name} />
+                          <span className="shrink-0 flex items-center justify-center">
+                            {skill.icon}
+                          </span>
                           <span className="text-[10px] text-zinc-700 font-mono">{skill.name}</span>
                         </div>
                       ))}
@@ -325,7 +340,7 @@ const Projects = () => {
       </div>
 
       {/* Section Navigation Link */}
-      <div className="relative z-20 w-full flex justify-center pb-2">
+      <div className="relative z-20 w-full hidden md:flex justify-center pb-2">
         <motion.div 
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
